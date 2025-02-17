@@ -1,0 +1,3329 @@
+version: 4
+data:
+  attachedData:
+    trivet:
+      testSuites: []
+      version: 1
+  graphs:
+    -8hfwwTncg1nOPfOClrzV:
+      metadata:
+        description: ""
+        id: -8hfwwTncg1nOPfOClrzV
+        name: Level 2/Check if Profit
+      nodes:
+        '[JzBL0ULiDglYAPY3isXJo]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 2413.254391288401/517.6998131373803/330/4//
+        '[tnRUQ_vAFrV8UaEt9D6fI]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: 771.3966049382716/549.7145061728395/330/2//
+    -EmCWh4vPdHhzsXnk-et1:
+      metadata:
+        description: ""
+        id: -EmCWh4vPdHhzsXnk-et1
+        name: New Folder/G. 🧠 Decide Buy Price
+      nodes:
+        '[1Wc7WVIigd96-CtWlzBIB]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          visualData: 348.05472587651843/2110.9936531443964/330/1974//
+        '[3oOs38lJzT47WWpPmWj2c]:subGraph "Subgraph"':
+          data:
+            graphId: UILZyf0MDSYhfyHHkLxz0
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 1103.4793035490313/1748.843739475461/330/null/var(--node-color-6)/var(--grey-darkish)
+        '[U8REXj07WHEA4VPkbM1B5]:code "end"':
+          data:
+            code: |
+              const now = new Date().toISOString();
+              const formattedTimestamp = encodeURIComponent(now);
+              return {
+                  output: {
+                      type: 'string',
+                      value: formattedTimestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          visualData: 388.02271369005416/1807.142806636446/230/1973//
+        '[bMP_gNBGkHsy9MUqut-Ve]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -1114.0007475039831/1447.5802815938105/330/null/var(--node-color-3)/var(--grey-darkish)
+        '[ewSD9zxLD-Y3TnztZf0wS]:graphOutput "Graph Output"':
+          data:
+            dataType: any[]
+            id: prices
+          visualData: 1557.4518035485198/1499.993811433041/330/2014/var(--node-color-3)/var(--grey-darkish)
+        '[opHOINgXRM6c7fO9MRg26]:code "start"':
+          data:
+            code: |
+              const date = new Date(Date.now() - 30 * 60 * 1000);
+              const timestamp = encodeURIComponent(date.toISOString());
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          visualData: 378.55326426893316/1503.077527011027/230/1972//
+        '[vLiXZ5cP3bQAHDskbw1KD]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          visualData: 325.95735268749536/2349.645190091515/330/1975//
+    2ZmjV40FG5iqx3xafof0A:
+      metadata:
+        description: ""
+        id: 2ZmjV40FG5iqx3xafof0A
+        name: New Folder/I1. 💣 Create Safety Order
+      nodes:
+        '[-vknNTharm4-QP9l41L4y]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" DwAYNfZW4TZqBq-8lKsbk/alpacasecret
+          visualData: 1919.2403331442104/2183.3751283478014/330/3057//
+        '[3H82pcRd-VCSwnhPqA4wo]:code "in the past "':
+          data:
+            code: >
+              const twentyMinutesInPast = Date.now() - (20 * 60 * 1000);
+
+              return {
+                  output: {
+                      type: 'number',
+                      value: Math.floor(twentyMinutesInPast / 1000) // Convert to Unix timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" Bw1eKt6IRRwRcAd973Nzs/timestart
+          visualData: -4861.931987579619/2821.5196641291886/230/3066//
+        '[7xZ8JvAhjzQ5KLRFsD8CK]:code "end"':
+          data:
+            code: |
+              const now = new Date().toISOString();
+              const formattedTimestamp = encodeURIComponent(now);
+              return {
+                  output: {
+                      type: 'string',
+                      value: formattedTimestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" SSFUp6F-WGrHIGOTHGLFU/end
+          visualData: -3753.9480977814674/3970.599867942896/230/3066//
+        '[9aG4_92hUwNCy2qAkje40]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.stop_price
+            usePathInput: false
+          visualData: 4059.4016005308654/2577.955061054087/280/3055//
+        '[Bw1eKt6IRRwRcAd973Nzs]:text "Text"':
+          data:
+            text: https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=1&time_start={{timestart}}&time_end={{timend}}&
+          outgoingConnections:
+            - output->"Http Call" ypwU-gQ-060wKA08fuwst/url
+          visualData: -4338.26885203533/2990.764341605738/1043.6635437174473/3066//
+        '[DwAYNfZW4TZqBq-8lKsbk]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" NflOG3kswI2YA9DONVTVv/headers
+          visualData: 2425.0152988286036/1985.820941904661/230/3056//
+        '[E6Qau8fWOHL7zmt4VJnDw]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" LifR-XVcO0-PnrUjuFmFy/alpacasecret
+          visualData: -3827.244582418856/4611.366769018759/330/3066//
+        '[L-kvH8klApjBV6FECn1kF]:chat "Take Profit Value"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: false
+            maxTokens: 1024
+            model: gpt-4o-mini
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.1
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Evaluate" MHE5oozxVhpl--nQXLhF0/a
+            - response->"Object" SyR8FHsIqXYjLq_O6sxoz/stop
+          visualData: 1295.1193754371493/3213.4067776135203/230/3072/var(--node-color-4)/var(--grey-darkish)
+        '[LifR-XVcO0-PnrUjuFmFy]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" eg0QwoGZC5CuYkXlsuT5-/headers
+          visualData: -2779.153516736141/3976.232638726334/230/3066//
+        '[MHE5oozxVhpl--nQXLhF0]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Object" SyR8FHsIqXYjLq_O6sxoz/limit
+          visualData: 1980.6056007563893/2789.1458280005977/205/3055//
+        '[NflOG3kswI2YA9DONVTVv]:httpCall "Sell Order"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: POST
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: true
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Extract Object Path" 9aG4_92hUwNCy2qAkje40/object
+            - json->"Graph Output" SzapCuDjDZWUGZy7DohZN/value
+          visualData: 2993.252734546223/2194.43809636066/645.5085253956813/3070/var(--node-color-2)/var(--node-color-2)
+        '[OvIx_W0SSvUhxU4HDElHl]:code "now"':
+          data:
+            code: |
+              const now = Math.floor(Date.now() / 1000);
+              return {
+                  output: {
+                      type: 'number',
+                      value: now
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" Bw1eKt6IRRwRcAd973Nzs/timend
+          visualData: -4872.440527846055/3252.134087780849/230/3066//
+        '[PrybHbGvRBmAwK2NORnZb]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" LifR-XVcO0-PnrUjuFmFy/alpacaAPI
+          visualData: -3824.00760065581/4344.2511104068035/330/3066//
+        '[QOmmCEt0nS8Ojs0Pn7OiU]:text "Text"':
+          data:
+            text: You are a formatter, please find the 'Take Profit Value' and respond with
+              it with no formatting, ie 60235. Dont include decimals.
+          outgoingConnections:
+            - output->"Take Profit Value" L-kvH8klApjBV6FECn1kF/systemPrompt
+          visualData: 843.5766813953275/3016.212912544308/330/3073//
+        '[QswcTmUkYjja6l5QTTYbG]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -5846.472991128271/3313.252992149464/330/3067/var(--node-color-3)/var(--grey-darkish)
+        '[RtPSH6IQTlChck_-4UvdK]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 1000
+          outgoingConnections:
+            - value->"Evaluate" MHE5oozxVhpl--nQXLhF0/b
+          visualData: 1609.2745192859495/3045.664235255943/230/3055//
+        '[SSFUp6F-WGrHIGOTHGLFU]:text "Text"':
+          data:
+            text: https://data.alpaca.markets/v1beta3/crypto/us/bars?symbols=BTC%2FUSD&timeframe=1Min&start={{start}}&end={{end}}&limit=1000&sort=desc
+          outgoingConnections:
+            - output->"Http Call" eg0QwoGZC5CuYkXlsuT5-/url
+          visualData: -2825.054471972254/3642.875278586449/330/3066//
+        '[SyR8FHsIqXYjLq_O6sxoz]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "side": "sell",
+                "type": "stop_limit",
+                "time_in_force": "gtc",
+                "symbol": "BTC/USD",
+                "limit_price": "{{limit}}",
+                "stop_price": "{{stop}}",
+                "qty":"{{qty}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" NflOG3kswI2YA9DONVTVv/req_body
+          visualData: 2363.2387166907506/2476.733997228306/331.00553368584497/3055//
+        '[SzapCuDjDZWUGZy7DohZN]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4053.5128079977235/1993.9547602005289/330/3055/var(--node-color-3)/var(--grey-darkish)
+        '[YSdJAlT0IIZ8ER4_6Q-Lb]:prompt "Prompt"':
+          data:
+            enableFunctionCall: false
+            promptText: >-
+              # System Prompt
+
+              You are a stock trader and own some bitcoin. Based on the information provided, recommend a Safety Sell value. It should be very close to the entry price so we don't loose basically any Money:
+
+              Safety Sell Value:
+
+
+              ## Relevant Information:
+
+              You Had an Entry Price of: {{entryPrice}}
+
+              The Current Price is: {{currentPrice}}
+
+              Current Timestamp: {{currentTimestamp}}
+
+
+              ## CoinMarketCap Data:
+
+              {{coinMarketcap}}
+
+
+              ## Alpaca Data:
+
+              {{alpacaData}}
+            type: user
+            useTypeInput: false
+          outgoingConnections:
+            - output->"Chat" hJyyj7haVhrWmp3Vfpp0u/prompt
+          visualData: -1250.748934109668/3008.344528122678/280/3065/var(--node-color-4)/var(--node-color-4)
+        '[bCF8CT3iza_LwjYl_8-Q3]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" DwAYNfZW4TZqBq-8lKsbk/alpacaAPI
+          visualData: 1917.3775434643744/1915.3519194003497/330/3058//
+        '[cJNdNTqiE7LNfQ5ToC3C0]:text "Text"':
+          data:
+            text: You are a formatter, please find the 'Safety Sell Value' and respond with
+              it with no formatting, ie 60235. Dont include decimals.
+          outgoingConnections:
+            - output->"Safety Sell Value" wnZAQQ-4h2YAEdaD0p8M5/systemPrompt
+          visualData: -101.752330905885/2981.174744269651/330/3071//
+        '[eg0QwoGZC5CuYkXlsuT5-]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: GET
+            url: ""
+            useBodyInput: false
+            useHeadersInput: true
+            useUrlInput: true
+          visualData: -2065.7137412188613/3732.5989680118782/552.4790946173493/3066/var(--node-color-2)/var(--grey-darkish)
+        '[hInJSNYWySIIBIY8IgGCL]:code "start"':
+          data:
+            code: |
+              const date = new Date(Date.now() - 30 * 60 * 1000);
+              const timestamp = encodeURIComponent(date.toISOString());
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" SSFUp6F-WGrHIGOTHGLFU/start
+          visualData: -3766.0342006861365/3618.2440286026103/230/3066//
+        '[hJyyj7haVhrWmp3Vfpp0u]:chat "Chat"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: false
+            maxTokens: 32768
+            model: o1-preview
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.1
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: false
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Prompt" lNHq-OQ3WdxCvOwL_ef54/input
+          visualData: -740.0607915102983/3164.107756031304/518.7680409243212/3065/var(--node-color-4)/var(--grey-darkish)
+        '[iV-g73_b3OQxT5dZ21dcw]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.data.quotes
+            usePathInput: false
+          outgoingConnections:
+            - match->"Prompt" YSdJAlT0IIZ8ER4_6Q-Lb/entryPrice
+          visualData: -1950.2061212245605/3037.7129739408865/280/3066//
+        '[kZswxJoo5nfb3V1xw__3Q]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "X-CMC_PRO_API_KEY": "07b1607c-e496-4350-8a32-836de4ef1d3b",
+                "symbol": "btc"
+              }
+          outgoingConnections:
+            - output->"Http Call" ypwU-gQ-060wKA08fuwst/headers
+          visualData: -3957.2949413672786/3359.3879914416475/600.2277682641491/3066//
+        '[lNHq-OQ3WdxCvOwL_ef54]:prompt "Prompt"':
+          data:
+            enableFunctionCall: false
+            promptText: "{{input}}"
+            type: user
+            useTypeInput: false
+          outgoingConnections:
+            - output->"Safety Sell Value" wnZAQQ-4h2YAEdaD0p8M5/prompt
+          visualData: -100.34601491599989/3284.1255488442953/280/3071//
+        '[qcj23feu-Vdhw0HuJ-12L]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - qty->"Object" SyR8FHsIqXYjLq_O6sxoz/qty
+          visualData: 1011.0464721985106/2362.979157528053/330/3061/var(--node-color-6)/var(--grey-darkish)
+        '[wnZAQQ-4h2YAEdaD0p8M5]:chat "Safety Sell Value"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: false
+            maxTokens: 1024
+            model: gpt-4o-mini
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.1
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Take Profit Value" L-kvH8klApjBV6FECn1kF/prompt
+          visualData: 537.89349922408/2836.4286766690507/230/3075/var(--node-color-4)/var(--grey-darkish)
+        '[ypwU-gQ-060wKA08fuwst]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: GET
+            url: ""
+            useBodyInput: false
+            useHeadersInput: true
+            useUrlInput: true
+          outgoingConnections:
+            - json->"Extract Object Path" iV-g73_b3OQxT5dZ21dcw/object
+          visualData: -2979.316984051573/3028.644701216829/552.4790946173493/3066/var(--node-color-2)/var(--grey-darkish)
+    36VOgXv5Tb3rFTydEwGfY:
+      metadata:
+        description: ""
+        id: 36VOgXv5Tb3rFTydEwGfY
+        name: Level 0/🛟 Setup & Help
+      nodes:
+        '[-Go1HCebNqjhvTbm2MMoq]:text "Text"':
+          data:
+            text: CORS problem = go to upper right 3 dots and change executor  to node
+          outgoingConnections:
+            - output->"Subgraph" b9vEsrd24PEqNn3hArKpY/input
+          visualData: 470.3225670752596/345.06298042492176/605/20/var(--node-color-5)/var(--node-color-5)
+        '[-Pt87YX-2KRbl-fmXMwV5]:subGraph "Subgraph"':
+          data:
+            graphId: DAPBm1WZBvN3BVMV_fGae
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 1327.3434230751018/1335.3292322413754/330/null/var(--node-color-6)/var(--grey-darkish)
+        '[192V1AyFm0fNxmuTVvtYG]:subGraph "Subgraph"':
+          data:
+            graphId: d3TZx8IM8CcbWFxUCoQLR
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 1327.3434230751018/721.1031505741241/330/12/var(--node-color-6)/var(--grey-darkish)
+        '[1ROiSXbYTjoVhFsP0UX2-]:subGraph "Subgraph"':
+          data:
+            graphId: UAMS5NzsFhUF0RehNLrMc
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 1337.0670400156475/909.7413192207129/330/13/var(--node-color-6)/var(--grey-darkish)
+        '[2oKvTcllXLaRP-xuqSdkA]:text "Text"':
+          data:
+            text: Solid Green = You change
+          outgoingConnections:
+            - output->"Subgraph" -Pt87YX-2KRbl-fmXMwV5/input
+            - output->"Subgraph" 192V1AyFm0fNxmuTVvtYG/prices
+            - output->"Subgraph" 1ROiSXbYTjoVhFsP0UX2-/input
+            - output->"Subgraph" rZNl79rLgO31vtBTnddFt/input
+          visualData: 555.8176552923785/980.4907232164674/605/14/var(--node-color-5)/var(--node-color-5)
+        '[3_av0zZI4Yyn4q2H83j1X]:text "Text"':
+          data:
+            text: >-
+              Set up your temporary variable in the Project tab in the top left
+              of Rivet. Change to their correct values:
+
+              alphacaSecret
+
+              alpacaAPI
+
+              coinAPI
+          visualData: 456.6649166035272/-32.65563452935559/879.5280565559913/18/var(--node-color-5)/var(--node-color-5)
+        '[b9vEsrd24PEqNn3hArKpY]:subGraph "Subgraph"':
+          data:
+            graphId: DAPBm1WZBvN3BVMV_fGae
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 1160.4422320482163/344.3279772004098/330/21/var(--node-color-6)/var(--grey-darkish)
+        '[rZNl79rLgO31vtBTnddFt]:subGraph "Subgraph"':
+          data:
+            graphId: -EmCWh4vPdHhzsXnk-et1
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 1327.3434230751018/1135.3292322413754/330/null/var(--node-color-6)/var(--grey-darkish)
+        '[swou7VBNm7RdtTuXzrI05]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 426.5478390089995
+            text: "### Setup"
+          visualData: 410.5371011464812/-204.4534570214492/1017.877273397198/17//
+    62BRCVLRRs9blLoVj_ptk:
+      metadata:
+        description: ""
+        id: 62BRCVLRRs9blLoVj_ptk
+        name: Level 2/G1. 🔻 Get Value
+      nodes:
+        '[2X3FaJqrzvICRns5OD_Vc]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" bs_-scL7HYn7ay-YaEEg8/alpacaAPI
+          visualData: 597.525462910312/130.3455011432726/330/1664//
+        '[AqWelWKrHCGkva9lRathW]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" bs_-scL7HYn7ay-YaEEg8/alpacasecret
+          visualData: 575.0851076133679/474.3627384629415/330/1665//
+        '[DiaYnh6j6nSoy3z8Z44MT]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.bars.BTC/USD.h
+            usePathInput: false
+          outgoingConnections:
+            - match->"Graph Output" j_lW6z8BiC5bIddfF8Lbt/value
+          visualData: 3464.1071564246886/476.8196015990883/280/2019//
+        '[HHzGCq12af-JR0JzQm5cj]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: false
+            headers: ""
+            method: GET
+            text: ""
+            url: https://data.alpaca.markets/v1beta3/crypto/us/latest/bars?symbols=BTC%2FUSD
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Coalesce" bvoeUW4i9CqdZ7DkPxcD0/input1
+          visualData: 1654.8473205144164/238.5419468375993/280/1664/var(--node-color-2)/var(--node-color-2)
+        '[JCDrGk3G-QfUGrJeZVzR6]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: low
+          visualData: 4489.037763307994/911.6845510599534/330/2022/var(--node-color-3)/var(--grey-darkish)
+        '[UcyQqWuQb-LS1xbnlrImJ]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.bars.BTC/USD.l
+            usePathInput: false
+          outgoingConnections:
+            - match->"Graph Output" JCDrGk3G-QfUGrJeZVzR6/value
+          visualData: 3439.503358508144/897.6554356932265/280/2021//
+        '[bs_-scL7HYn7ay-YaEEg8]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" HHzGCq12af-JR0JzQm5cj/headers
+          visualData: 1063.7268444009605/210.23326123029676/230/1664//
+        '[bvoeUW4i9CqdZ7DkPxcD0]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Extract Object Path" fG2a9uB_FJsf35Oo_pfsm/object
+          visualData: 2327.756039995797/584.8066536505858/180/1667//
+        '[fG2a9uB_FJsf35Oo_pfsm]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $
+            usePathInput: false
+          outgoingConnections:
+            - match->"Extract Object Path" DiaYnh6j6nSoy3z8Z44MT/object
+            - match->"Extract Object Path" UcyQqWuQb-LS1xbnlrImJ/object
+          visualData: 2756.606293326228/594.9977451330109/280/1668//
+        '[j_lW6z8BiC5bIddfF8Lbt]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: high
+          visualData: 4467.344441789035/509.82402737038353/330/2017/var(--node-color-3)/var(--grey-darkish)
+        '[zyiuuedCk2VwY1Sr_trFT]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 0
+          outgoingConnections:
+            - value->"Coalesce" bvoeUW4i9CqdZ7DkPxcD0/input2
+          visualData: 1699.4830308805547/1066.4997420827967/230/1669//
+    8ON9IG4sFWTtaCX2yXvV3:
+      metadata:
+        description: ""
+        id: 8ON9IG4sFWTtaCX2yXvV3
+        name: New Folder/G. 🧠 Decide Buy Price (Copy)
+      nodes:
+        '[1wkeRaRMZnWXT_iCxnwH7]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.bars
+            usePathInput: false
+          outgoingConnections:
+            - match->"Prompt" YBzHz-qK7IuOG-KK3gvrU/alpacaData
+          visualData: 2286.350956502844/1321.056401228599/280/2002//
+        '[2gwNBAEQnQFcU_NXqBqX5]:text "Text"':
+          data:
+            text: You are a formatted, please find the recommended Stop Buy Price and
+              respond with it with no formatting, ie 60235. Do not include any
+              decimals.
+          outgoingConnections:
+            - output->"Innitial Buy Value" hgi6F-IlvjOgYMcA_yd11/systemPrompt
+          visualData: 4479.677100941352/543.5853539466448/330/2008//
+        '[30YICHFpHF949ps0wwgzz]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" HTK47Nf_QAEdXyd7c9NE-/headers
+            - output->"Http Call" cvKERLRGJmH1W3Kmj3Y3O/headers
+          visualData: 1016.7964797585461/1794.064982912735/230/1971//
+        '[6qrtnotlHCIsxd04lZ1X0]:code "Code"':
+          data:
+            code: |
+              const timestamp = new Date().toISOString();
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Prompt" YBzHz-qK7IuOG-KK3gvrU/currentTimestamp
+          visualData: 2334.8901759297164/820.7664153604657/230/1987//
+        '[9kj6hBFgTt15_6kiAZduE]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" 30YICHFpHF949ps0wwgzz/alpacasecret
+          visualData: 325.95735268749536/2349.645190091515/330/1975//
+        '[AbDSjD_GE_GMVfElyn9sl]:code "start"':
+          data:
+            code: |
+              const date = new Date(Date.now() - 30 * 60 * 1000);
+              const timestamp = encodeURIComponent(date.toISOString());
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" YZUydfzkMtshM9j15Jb2g/start
+          visualData: 378.55326426893316/1503.077527011027/230/1972//
+        '[BW1G-YqScKWy7SMxneehX]:graphOutput "Graph Output"':
+          data:
+            dataType: any[]
+            id: prices
+          visualData: 5026.129881492006/841.4917034661866/330/2010/var(--node-color-3)/var(--grey-darkish)
+        '[HTK47Nf_QAEdXyd7c9NE-]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: GET
+            url: ""
+            useBodyInput: false
+            useHeadersInput: true
+            useUrlInput: true
+          outgoingConnections:
+            - json->"Extract Object Path" 1wkeRaRMZnWXT_iCxnwH7/object
+          visualData: 1428.5085718135465/1433.7465992110133/552.4790946173493/2004/var(--node-color-2)/var(--node-color-2)
+        '[T5tmq4j4D1KKuJRP2Rqg8]:code "end"':
+          data:
+            code: |
+              const now = new Date().toISOString();
+              const formattedTimestamp = encodeURIComponent(now);
+              return {
+                  output: {
+                      type: 'string',
+                      value: formattedTimestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" YZUydfzkMtshM9j15Jb2g/end
+          visualData: 388.02271369005416/1807.142806636446/230/1973//
+        '[YBzHz-qK7IuOG-KK3gvrU]:prompt "Prompt"':
+          data:
+            enableFunctionCall: false
+            promptText: >
+              # System Prompt
+
+              You are a Bitcoin stock trader. You use a trading service thatwe can use to buy bitcoin above the current price. We do this so that we want an uptrend. Help me pick a uptrend price that's super close the the current price. I also am giving you recent trading data for context. It should be within $50 of the current price.
+
+
+
+              ## Relevant Information:
+
+              The Current Price is: {{currentPrice}}
+
+              Current Timestamp: {{currentTimestamp}}
+
+
+              ## Alpaca Data:
+
+              {{alpacaData}}
+
+
+              ## More Data:
+
+              {{data}}
+            type: user
+            useTypeInput: false
+          outgoingConnections:
+            - output->"Chat" lxUy5jrbqMgw0pP4jnh1z/prompt
+          visualData: 3042.6794657105556/670.0581290152985/675.3330287408307/1999/var(--node-color-4)/var(--node-color-4)
+        '[YZUydfzkMtshM9j15Jb2g]:text "Text"':
+          data:
+            text: https://data.alpaca.markets/v1beta3/crypto/us/bars?symbols=BTC%2FUSD&timeframe=1Min&start={{start}}&end={{end}}&limit=1000&sort=desc
+          outgoingConnections:
+            - output->"Http Call" HTK47Nf_QAEdXyd7c9NE-/url
+          visualData: 962.4969580966296/1567.7505672027573/330/1970//
+        '[cvKERLRGJmH1W3Kmj3Y3O]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: false
+            headers: ""
+            method: GET
+            text: ""
+            url: https://data.alpaca.markets/v1beta3/crypto/us/latest/bars?symbols=BTC%2FUSD
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Prompt" YBzHz-qK7IuOG-KK3gvrU/data
+          visualData: 2392.5772447128215/1866.2564309680167/280/2003/var(--node-color-2)/var(--node-color-2)
+        '[hgi6F-IlvjOgYMcA_yd11]:chat "Innitial Buy Value"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: false
+            maxTokens: 1024
+            model: gpt-4o-mini
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.1
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Graph Output" BW1G-YqScKWy7SMxneehX/value
+          visualData: 4524.523319016785/806.3677154518795/230/2007/var(--node-color-4)/var(--grey-darkish)
+        '[ifUANxjOBww8vff7VltLw]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -1114.0007475039831/1447.5802815938105/330/null/var(--node-color-3)/var(--grey-darkish)
+        '[lxUy5jrbqMgw0pP4jnh1z]:chat "Chat"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: false
+            maxTokens: 32768
+            model: o1-preview
+            parallelFunctionCalling: true
+            stop: ""
+            temperature: 0.1
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: false
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePresencePenaltyInput: false
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - response->"Innitial Buy Value" hgi6F-IlvjOgYMcA_yd11/prompt
+          visualData: 3837.1718561877256/832.9023168443091/518.7680409243212/2009/var(--node-color-4)/var(--grey-darkish)
+        '[qUa1jYSJBInh1MblYQ0WN]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" 30YICHFpHF949ps0wwgzz/alpacaAPI
+          visualData: 348.05472587651843/2110.9936531443964/330/1974//
+        '[t4SduMVK7ZTAfMLFGoUIH]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Prompt" YBzHz-qK7IuOG-KK3gvrU/currentPrice
+          visualData: 2287.286056604918/582.0624044485029/330/1986/var(--node-color-6)/var(--grey-darkish)
+    Celnb9lSKkDgco4XDUw6c:
+      metadata:
+        description: ""
+        id: Celnb9lSKkDgco4XDUw6c
+        name: Level 0/🏹 Entry
+      nodes:
+        '[-x7xllKOy0ktni1-tl0LG]:subGraph "Subgraph"':
+          data:
+            graphId: FcmiXud_4U21cpb4iMSve
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" 6bcuvID5vqAJKdGmlY20x/input1
+          visualData: 3015.0540219593636/595.9134436295527/330/434/var(--node-color-6)/var(--grey-darkish)
+        '[23fmbl0XbVhnBYRa9zvnu]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4636.95974919408/563.4333437927033/330/444/var(--node-color-3)/var(--grey-darkish)
+        '[2nz6qZ8thmatXdXSbs8TR]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4621.9965133943415/884.0773331639024/330/453/var(--node-color-3)/var(--grey-darkish)
+        '[3ERQ7ByeRToInlBi3FCPB]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"If" Sm0j55yQAvfOa0wO4b_xi/value
+            - ifHoldings->"If" Sm0j55yQAvfOa0wO4b_xi/if
+          visualData: -48.154130331863236/291.1937771507971/330/244/var(--node-color-6)/var(--grey-darkish)
+        '[6bcuvID5vqAJKdGmlY20x]:delay "Delay"':
+          data:
+            delay: 15000
+          outgoingConnections:
+            - output1->"Graph Output" 23fmbl0XbVhnBYRa9zvnu/value
+          visualData: 3821.400631511063/586.2407569723206/205/443//
+        '[CnZ-odP6N_dN5lumvARt4]:subGraph "Subgraph"':
+          data:
+            graphId: WcV8tYkaYgnwPtRZ21-qE
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" MMK7g645TPl87WDRXpBBs/input1
+          visualData: 3020.6251344501366/112.177775455822/330/447/var(--node-color-6)/var(--grey-darkish)
+        '[DesyAfxBhTp9j2cJ_WQO2]:subGraph "Subgraph"':
+          data:
+            graphId: XkxBRmtzMtDGpFwV5VdMI
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" bztc8GHmYloKAKdFgG5QC/input1
+          visualData: 3018.0323760788683/-133.8727184436205/330/448/var(--node-color-6)/var(--grey-darkish)
+        '[IgcpuGqNohAfNw4HdnEeZ]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If you are holding assets"
+          visualData: 620.4917642314858/71.99565635804048/630/54//
+        '[JbKkoNF6hXKtP0ThG79Du]:graphInput "Graph Input"':
+          data:
+            dataType: string[]
+            id: input
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Subgraph" 3ERQ7ByeRToInlBi3FCPB/input
+          visualData: -694.2464990299511/281.89711234858913/330/323/var(--node-color-3)/var(--grey-darkish)
+        '[MMK7g645TPl87WDRXpBBs]:delay "Delay"':
+          data:
+            delay: 5000
+          outgoingConnections:
+            - output1->"Graph Output" Tm04h5fHNyYdLKqg_N1IZ/value
+          visualData: 3810.5870783510686/194.68039278036994/205/445//
+        '[QFt7qX5VXtfFQHecmT988]:subGraph "Subgraph"':
+          data:
+            graphId: wERREeqqgQuWFQ2C47TvJ
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - if->"If" pVjfmC4vwnyegGExSmEjd/if
+            - value->"If" pVjfmC4vwnyegGExSmEjd/value
+          visualData: 1601.6919281290066/573.0400194553176/330/429/var(--node-color-6)/var(--grey-darkish)
+        '[Sm0j55yQAvfOa0wO4b_xi]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Subgraph" QFt7qX5VXtfFQHecmT988/input
+            - output->"Subgraph" dxETOVh0ASyFykKFXskjO/input
+          visualData: 854.9495623365715/302.6008080177548/155/54/var(--node-color-2)/var(--grey-darkish)
+        '[Tm04h5fHNyYdLKqg_N1IZ]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4638.851802480601/169.46085111150182/330/433/var(--node-color-3)/var(--grey-darkish)
+        '[bztc8GHmYloKAKdFgG5QC]:delay "Delay"':
+          data:
+            delay: 5000
+          outgoingConnections:
+            - output1->"Graph Output" qwtmau1RWrIbJ09q-WJQk/value
+          visualData: 3744.130601026656/-205.9777455395213/205/432//
+        '[di_YUQ3-JnOF3XTxhvy-L]:subGraph "Subgraph"':
+          data:
+            graphId: UILZyf0MDSYhfyHHkLxz0
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" goiLZUOoz0Wbc8TCSmwF7/input1
+          visualData: 3016.5832566239/825.3036439584059/330/449/var(--node-color-6)/var(--grey-darkish)
+        '[dxETOVh0ASyFykKFXskjO]:subGraph "Subgraph"':
+          data:
+            graphId: P20FLRG8Q9wwy4_NtEuzx
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - if->"If" wHtU5FQa2fpTcuDlmZvoP/if
+            - value->"If" wHtU5FQa2fpTcuDlmZvoP/value
+          visualData: 1588.2183707103807/168.80588500640937/330/197/var(--node-color-6)/var(--grey-darkish)
+        '[goiLZUOoz0Wbc8TCSmwF7]:delay "Delay"':
+          data:
+            delay: 5000
+          outgoingConnections:
+            - output1->"Graph Output" 2nz6qZ8thmatXdXSbs8TR/value
+          visualData: 3820.137187746322/836.1907833590155/205/451//
+        '[ohrmx2VAwd7Y-b1PmRtVe]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If it is partially filled"
+          visualData: 2155.6595573716854/-235.4674771860735/630/431//
+        '[pVjfmC4vwnyegGExSmEjd]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Subgraph" di_YUQ3-JnOF3XTxhvy-L/input
+            - output->"Subgraph" -x7xllKOy0ktni1-tl0LG/input
+          visualData: 2398.8264168554097/699.4715634333512/155/430/var(--node-color-2)/var(--grey-darkish)
+        '[q-_f_dhDDU2BSWOi5DliN]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If you already have a buy order"
+          visualData: 2165.09318382837/521.65537180034/630/430//
+        '[qwtmau1RWrIbJ09q-WJQk]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4619.815916160251/-202.03972011830461/330/442/var(--node-color-3)/var(--grey-darkish)
+        '[wHtU5FQa2fpTcuDlmZvoP]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Subgraph" CnZ-odP6N_dN5lumvARt4/input
+            - output->"Subgraph" DesyAfxBhTp9j2cJ_WQO2/input
+          visualData: 2366.822973599269/9.614294023544801/155/431/var(--node-color-2)/var(--grey-darkish)
+    DAPBm1WZBvN3BVMV_fGae:
+      metadata:
+        description: ""
+        id: DAPBm1WZBvN3BVMV_fGae
+        name: New Folder/J.  🧠 Decide First Sell
+      nodes:
+        '[8JgJ1cEiVzQzxyEH987_J]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          visualData: 3745.2458206120405/1868.2395125974379/230/2080//
+        '[GSDej6pj3igAcur8tkPmk]:graphOutput "Graph Output"':
+          data:
+            dataType: any
+            id: output
+          visualData: 6767.989659092204/1672.3129330066831/330/2084/var(--node-color-3)/var(--grey-darkish)
+        '[ZXUl_-WBRP2TkRrDWnH1N]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" 8JgJ1cEiVzQzxyEH987_J/alpacaAPI
+          visualData: 3028.5569206075575/1962.401827278263/330/2080//
+        '[gk6xE87Hxy3P-5TF4gGsa]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Graph Output" GSDej6pj3igAcur8tkPmk/value
+          visualData: 5438.916866466297/1589.6273969813283/330/2083/var(--node-color-6)/var(--grey-darkish)
+        '[j1LWZQYlYZnPsewg3H992]:graphInput "Graph Input"':
+          data:
+            dataType: string[]
+            id: input
+            useDefaultValueInput: false
+          visualData: 1724.2434729465658/1214.1595109349423/330/2064/var(--node-color-3)/var(--grey-darkish)
+        '[vLwUtTH3ww_7YZU6E8z2m]:code "start"':
+          data:
+            code: |
+              const date = new Date(Date.now() - 30 * 60 * 1000);
+              const timestamp = encodeURIComponent(date.toISOString());
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" y8PqJmfBmfD_XsFhqX1wf/start
+          visualData: 3086.530320577231/1236.394745474069/230/2080//
+        '[y8PqJmfBmfD_XsFhqX1wf]:text "Text"':
+          data:
+            text: https://data.alpaca.markets/v1beta3/crypto/us/bars?symbols=BTC%2FUSD&timeframe=1Min&start={{start}}&end={{end}}&limit=1000&sort=desc
+          visualData: 3699.344865375928/1534.882152457553/330/2080//
+        '[zMrR9rUOVxl2-i6eokHys]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" 8JgJ1cEiVzQzxyEH987_J/alpacasecret
+          visualData: 3025.3199388445114/2229.5174858902187/330/2080//
+        '[zYnz8P4zxMFnA1QWk0m-t]:code "end"':
+          data:
+            code: |
+              const now = new Date().toISOString();
+              const formattedTimestamp = encodeURIComponent(now);
+              return {
+                  output: {
+                      type: 'string',
+                      value: formattedTimestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" y8PqJmfBmfD_XsFhqX1wf/end
+          visualData: 3098.6164234819003/1588.7505848143544/230/2080//
+    FMUGI6NtOkYchWNzb5FbF:
+      metadata:
+        description: ""
+        id: FMUGI6NtOkYchWNzb5FbF
+        name: New Folder/If Need To Sell (Copy)
+      nodes:
+        '[6GWckGLDhvqgqQlJz6nAY]:subGraph "Subgraph"':
+          data:
+            graphId: QLZ9OqzpY4scEP07dRZk3
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: -926.0077278295494/1349.6373288529703/330/118/var(--node-color-6)/var(--grey-darkish)
+        '[6zHzQK6mdvBSYChXt_hsM]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Compare" knGrYQLvbPD9DOxXb2w8Z/b
+          visualData: -369.527215095291/400.4476471537327/330/94//
+        '[7CzMwad52SA6OeQYj_e3D]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Destructure" AoADULhU9as6Zrpuxc04L/object
+            - output->"Subgraph" E9I949-nklQmdjaC_Qhxr/input
+          visualData: 916.7408787519252/513.5522867281468/155/27/var(--node-color-2)/var(--grey-darkish)
+        '[AoADULhU9as6Zrpuxc04L]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+              - $.[2]
+          outgoingConnections:
+            - match_2->"Graph Output" iQzSdE0H6dp6RJ-iHfGVD/value
+          visualData: 1597.748747769125/664.936410884321/280/44//
+        '[E9I949-nklQmdjaC_Qhxr]:subGraph "Subgraph"':
+          data:
+            graphId: -8hfwwTncg1nOPfOClrzV
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"If" JkzyqDvEE-I85EVzChi9d/if
+            - output->"If" JkzyqDvEE-I85EVzChi9d/value
+          visualData: 1550.7524033749971/331.47722677682015/330/46/var(--node-color-6)/var(--grey-darkish)
+        '[FZQKOwyn_qyJ8XaiH9ImH]:subGraph "Subgraph"':
+          data:
+            graphId: XJHPKulJdSZqEHYo9S8lK
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" uoKHWfO6GdUHh0W81CUbQ/value
+          visualData: 3252.4769030665066/178.94772580315228/330/47/var(--node-color-6)/var(--grey-darkish)
+        '[JkzyqDvEE-I85EVzChi9d]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Destructure" ZIa1DUZoZF96J-Pj0KYBe/object
+            - output->"Subgraph" FZQKOwyn_qyJ8XaiH9ImH/input
+          visualData: 2476.2725851669275/305.6832295211078/155/47/var(--node-color-2)/var(--grey-darkish)
+        '[MVCuYehchJhLj4hy-_Cnp]:boolean "Bool"':
+          data:
+            value: true
+          outgoingConnections:
+            - value->"Array" ky6-zkNGVuKg9fp3Fmp6R/input2
+          visualData: -323.6415935793694/1019.967264577297/160/99//
+        '[Mkty6XOpTqg1vuOxLY8rG]:compare "Compare"':
+          data:
+            comparisonFunction: ">"
+          outgoingConnections:
+            - output->"If" OiwYN_Nwb0pCNaZ-8gcrg/if
+          visualData: -1993.7540603646908/803.3489520498224/190/121//
+        '[OiwYN_Nwb0pCNaZ-8gcrg]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          visualData: -1472.9032358862726/975.3642612410343/155/110/var(--node-color-2)/var(--grey-darkish)
+        '[RvlmdulhAYtIenIyAs-f3]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If you need to take loss"
+          visualData: 2250.0407870230447/77.70677881905985/630/47//
+        '[W8LFvbq0xliMx8ip8rH10]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the high is $25 or over sell for profit\r
+
+              #### if its -$20 sell for loss "
+          visualData: -1702.5773079348737/729.3535397161727/630/108//
+        '[ZIa1DUZoZF96J-Pj0KYBe]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+              - $.[2]
+          outgoingConnections:
+            - match_1->"Graph Output" rpaOj97z4sbQFUtpAKhhX/value
+          visualData: 3283.155153482522/471.1055221618775/280/103//
+        '[cPU2Ws2WBnoqVlAm67Xqd]:evaluate "Evaluate"':
+          data:
+            operation: +
+          outgoingConnections:
+            - output->"Compare" knGrYQLvbPD9DOxXb2w8Z/a
+          visualData: -310.9817825846193/173.62814339989805/205/76//
+        '[dlfvIb1z_FdnPpWuAAJMF]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -3742.364667216272/675.2583791164697/330/125/var(--node-color-3)/var(--grey-darkish)
+        '[ebo6FmT_7y6DS-pWxBD92]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Compare" Mkty6XOpTqg1vuOxLY8rG/b
+          visualData: -2569.7128190318763/1028.183817068048/330/138/var(--node-color-6)/var(--grey-darkish)
+        '[iQzSdE0H6dp6RJ-iHfGVD]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 2445.5777228420475/742.0642378057223/330/48/var(--node-color-3)/var(--grey-darkish)
+        '[idBiaHGuqvbPa-aVqrDmQ]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - high->"Compare" Mkty6XOpTqg1vuOxLY8rG/a
+          visualData: -2608.244891107658/464.5585274129001/330/140/var(--node-color-6)/var(--grey-darkish)
+        '[kPoH_QUhUihMZZCDdO1y7]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 50
+          outgoingConnections:
+            - value->"Evaluate" cPU2Ws2WBnoqVlAm67Xqd/b
+          visualData: -951.0818544898391/447.14271418432423/230/79//
+        '[knGrYQLvbPD9DOxXb2w8Z]:compare "Compare"':
+          data:
+            comparisonFunction: ">"
+          outgoingConnections:
+            - output->"If" 7CzMwad52SA6OeQYj_e3D/if
+          visualData: 250.28262871178086/262.6691870469984/190/86//
+        '[ky6-zkNGVuKg9fp3Fmp6R]:array "Array"':
+          data:
+            flatten: true
+            flattenDeep: false
+          outgoingConnections:
+            - output->"If" 7CzMwad52SA6OeQYj_e3D/value
+          visualData: 267.3198842353542/712.362564357863/230/87//
+        '[rScHRoUSTd2h5pN3Ko6cB]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If You need to take profit and the current low is $50 higher than
+              entry price"
+          visualData: 697.2322707862689/269.14582605262734/630/24//
+        '[rpaOj97z4sbQFUtpAKhhX]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: output
+          visualData: 4042.324452820117/516.5860910457327/330/102/var(--node-color-3)/var(--grey-darkish)
+        '[rvL5h3suHvhiBWVyoz-AP]:boolean "Bool"':
+          data:
+            value: false
+          outgoingConnections:
+            - value->"Array" ky6-zkNGVuKg9fp3Fmp6R/input3
+          visualData: -312.3627828901577/1243.279485284752/160/98//
+        '[uoKHWfO6GdUHh0W81CUbQ]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: output
+          visualData: 4032.4656180060256/160.84159964591365/330/47/var(--node-color-3)/var(--grey-darkish)
+    FcmiXud_4U21cpb4iMSve:
+      metadata:
+        description: ""
+        id: FcmiXud_4U21cpb4iMSve
+        name: Level 1/I. Update Buy Order
+      nodes:
+        '[2DFlnfPF_72jYy3WgCIpE]:evaluate "Evaluate"':
+          data:
+            operation: +
+          outgoingConnections:
+            - output->"Subgraph" usTgUIr9is8p7B807SfdO/input
+          visualData: -1327.045541907047/1870.6573431466873/205/3000//
+        '[BpexP3jLM838PqqGgGufP]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: -2422.458629997621/51.295611467140134/330/2114/var(--node-color-6)/var(--grey-darkish)
+        '[DpdLvueVHM8IGhm_IFXK8]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 10
+          outgoingConnections:
+            - value->"Evaluate" 2DFlnfPF_72jYy3WgCIpE/b
+          visualData: -1892.952498168374/2013.3840220474945/230/3004/var(--node-color-4)/var(--node-color-4)
+        '[DvV9J5f3MAIlsfQ6L4ywY]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: -182.8603404560056/1873.7379462432023/330/3006/var(--node-color-3)/var(--grey-darkish)
+        '[QIJernsl9akfrykAImZTs]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -4103.715183654/1954.2998300112774/330/3002/var(--node-color-3)/var(--grey-darkish)
+        '[d5RXlxlE_MmY1GnNi8vZq]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - high->"Evaluate" 2DFlnfPF_72jYy3WgCIpE/a
+          visualData: -1935.3002991139188/1603.079323341748/330/3003/var(--node-color-6)/var(--grey-darkish)
+        '[usTgUIr9is8p7B807SfdO]:subGraph "Subgraph"':
+          data:
+            graphId: ScfhVWqJlHSISKosjqByx
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" DvV9J5f3MAIlsfQ6L4ywY/value
+          visualData: -848.8043935874277/1891.1391856185749/330/3005/var(--node-color-6)/var(--grey-darkish)
+    P20FLRG8Q9wwy4_NtEuzx:
+      metadata:
+        description: ""
+        id: P20FLRG8Q9wwy4_NtEuzx
+        name: Level 1/B. 📊 If Partial Order
+      nodes:
+        '[1EGHDbyA2psT6jUHn-qnx]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -5.2578225858929954/540.2585069073912/330/1943/var(--node-color-3)/var(--grey-darkish)
+        '[1wj4o5gM7LMPGTht9ogKt]:array "Array"':
+          data:
+            flatten: true
+            flattenDeep: false
+          outgoingConnections:
+            - output->"If" f_FUPFAR7De3Ck0d_3MTb/value
+          visualData: 1185.5311250535233/640.2750793779012/230/null//
+        '[7jHjIbxmOfgFImmnqDqSY]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+          outgoingConnections:
+            - match_0->"Bool" qlcn0xFygwVd6lr5n40hm/input
+          visualData: 2192.564870873872/452.84258703909177/280/1947//
+        '[M3IAFeiSDrCO0q4cNjuCb]:boolean "Bool"':
+          data:
+            useValueInput: false
+            value: true
+          outgoingConnections:
+            - value->"Array" 1wj4o5gM7LMPGTht9ogKt/input1
+          visualData: 885.136852333871/849.7226761043615/160/1940//
+        '[NKVAzBHl_e_oN-PF3zC2h]:subGraph "Subgraph"':
+          data:
+            graphId: aQEE6dvs0MsvUuLqUwMG6
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - partially_filled->"Compare" td17D853XH_7ohPpTqUhm/a
+          visualData: 448.0009037203382/208.84762659803795/330/1945/var(--node-color-6)/var(--grey-darkish)
+        '[OieLTu9k71JEiF2zjskxN]:boolean "Bool"':
+          data:
+            useValueInput: false
+            value: false
+          outgoingConnections:
+            - value->"Array" 1wj4o5gM7LMPGTht9ogKt/input2
+          visualData: 886.2459203358758/1009.0607087539133/160/1939//
+        '[QF-lsG0E6_3GpLqVsJgPX]:boolean "Bool"':
+          data:
+            useValueInput: true
+            value: false
+          outgoingConnections:
+            - value->"Graph Output" t5CuG3kNJ8sr5mbHZz4uK/value
+            - value->"Graph Output" tP44_WWFmZa05QmtxShao/value
+          visualData: 2591.829351595596/712.7322591473503/160/1958//
+        '[RZ-5eMENPQODYpBSda6vl]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If it's partially filled"
+          visualData: 1499.896236581776/237.73468353917147/630/1931//
+        '[TGo-MhvSe7LleP4VNS52k]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 2984.145779366192/284.5525879091682/330/1956/var(--node-color-3)/var(--grey-darkish)
+        '[ZX_ZsqyPxJ42ZQCKuDhbe]:graphOutput "Graph Output"':
+          data:
+            dataType: any[]
+            id: value
+          visualData: 2981.8580340919852/498.0598183255071/330/1957/var(--node-color-3)/var(--grey-darkish)
+        '[bwUEU8m4vtTDGLxL2qN-b]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+          outgoingConnections:
+            - match_1->"Bool" QF-lsG0E6_3GpLqVsJgPX/input
+          visualData: 2192.564870873872/652.8425870390918/280/1947//
+        '[f_FUPFAR7De3Ck0d_3MTb]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Destructure" bwUEU8m4vtTDGLxL2qN-b/object
+            - output->"Destructure" 7jHjIbxmOfgFImmnqDqSY/object
+          visualData: 1713.447494007803/520.4957351613839/155/1934/var(--node-color-2)/var(--grey-darkish)
+        '[ih7IpLF7QebWvWkcpxJQN]:text "Text"':
+          data:
+            text: partially_filled
+          outgoingConnections:
+            - output->"Compare" td17D853XH_7ohPpTqUhm/b
+          visualData: 433.5830196942761/715.6917035142268/330/1944//
+        '[qlcn0xFygwVd6lr5n40hm]:boolean "Bool"':
+          data:
+            useValueInput: true
+            value: false
+          outgoingConnections:
+            - value->"Graph Output" TGo-MhvSe7LleP4VNS52k/value
+            - value->"Graph Output" ZX_ZsqyPxJ42ZQCKuDhbe/value
+          visualData: 2592.938419597601/356.353670864675/160/1955//
+        '[t5CuG3kNJ8sr5mbHZz4uK]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 2971.1306082812343/733.4367915463035/330/1959/var(--node-color-3)/var(--grey-darkish)
+        '[tP44_WWFmZa05QmtxShao]:graphOutput "Graph Output"':
+          data:
+            dataType: any[]
+            id: value
+          visualData: 2972.1700670130417/914.7810499045033/330/1960/var(--node-color-3)/var(--grey-darkish)
+        '[td17D853XH_7ohPpTqUhm]:compare "Compare"':
+          data:
+            comparisonFunction: ==
+          outgoingConnections:
+            - output->"If" f_FUPFAR7De3Ck0d_3MTb/if
+          visualData: 1158.9134930054083/335.28137882658393/190/1937//
+    QLZ9OqzpY4scEP07dRZk3:
+      metadata:
+        description: ""
+        id: QLZ9OqzpY4scEP07dRZk3
+        name: Level 2/Recent Bar
+      nodes:
+        '[BtpDgJLaH0lJGU07up2Wr]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: 423/542.5/330/1//
+        '[PJLX2JNC9NsEky6QK_G4m]:text "Text"':
+          data:
+            text: https://data.alpaca.markets/v1beta3/crypto/us/bars?symbols=BTC%2FUSD&timeframe=1Min&start={{startDate}}&end={{endDate}}&limit=50&sort=asc
+          outgoingConnections:
+            - output->"Http Call" n2ZxZUVLaFZNX1UFpokvF/url
+          visualData: 1720.1143084902126/423.61569029611263/330/1677//
+        '[Vr7Y6tnfdYeT94uo1B_rR]:code "Code"':
+          data:
+            code: |
+              const now = new Date();
+              const twentyMinutesAgo = new Date(now.getTime() - 10 * 60 * 1000);
+              const timecode = twentyMinutesAgo.toISOString();
+
+              return {
+                  output: {
+                      type: 'datetime',
+                      value: timecode
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" PJLX2JNC9NsEky6QK_G4m/startDate
+          visualData: 1230.0688502888675/125.03590506514274/230/1673//
+        '[_meW6UYZcvz8Lyzi2Eg5l]:code "Code"':
+          data:
+            code: |
+              const timestamp = new Date().toISOString();
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" PJLX2JNC9NsEky6QK_G4m/endDate
+          visualData: 1244.1810373355822/482.234070342877/230/1674//
+        '[d-VIZRZEEVCxskArOCL6j]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" n2ZxZUVLaFZNX1UFpokvF/headers
+          visualData: 1769.447410934162/842.1945345066946/230/1676//
+        '[dbn5kPpvuBLHQNsQrs3Mk]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" d-VIZRZEEVCxskArOCL6j/alpacasecret
+          visualData: 1238.6255433559907/1135.3992641502941/330/1679//
+        '[n2ZxZUVLaFZNX1UFpokvF]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: false
+            headers: ""
+            method: GET
+            text: ""
+            url: https://data.alpaca.markets/v1beta3/crypto/us/latest/bars?symbols=BTC%2FUSD
+            useHeadersInput: true
+            useUrlInput: true
+          outgoingConnections:
+            - json->"Graph Output" vIwtg6Z3pyVIFdTQ5ZbO7/value
+          visualData: 2253.301652281662/660.6519062076736/280/1678/var(--node-color-2)/var(--node-color-2)
+        '[pwOVcPZjGJlMEvh3TF4oE]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" d-VIZRZEEVCxskArOCL6j/alpacaAPI
+          visualData: 1228.1254658160906/824.7146272793752/330/1675//
+        '[vIwtg6Z3pyVIFdTQ5ZbO7]:graphOutput "Graph Output"':
+          data:
+            dataType: any
+            id: output
+          visualData: 2744.634511810381/796.8038355629488/330/null//
+    ScfhVWqJlHSISKosjqByx:
+      metadata:
+        description: ""
+        id: ScfhVWqJlHSISKosjqByx
+        name: Level 2/Update Stop and Limit
+      nodes:
+        '[8x-6HK_QS2Q0z9IBpbPgo]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 2562.714935188289/1069.8416510307704/330/3018/var(--node-color-3)/var(--grey-darkish)
+        '[GUAqtmK9XMMWf3UDMzqGE]:subGraph "Subgraph"':
+          data:
+            graphId: aQEE6dvs0MsvUuLqUwMG6
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - qty->"Object" vFsMQJPo04t5y3AcofHZy/qty
+          visualData: -76.37595761051742/1315.8488262876995/330/3019//
+        '[MIX-5oizm4YljmGIjJwy3]:text "Text"':
+          data:
+            text: https://api.alpaca.markets/v2/orders/{{id}}
+          outgoingConnections:
+            - output->"Update Order" jS5NvxomG7x1UVG7V07JN/url
+          visualData: 916.0155237425836/871.222008239264/330/2971//
+        '[RkmDQQSa-gPl6u3G5QSWe]:subGraph "Subgraph"':
+          data:
+            graphId: aQEE6dvs0MsvUuLqUwMG6
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - id->"Text" MIX-5oizm4YljmGIjJwy3/id
+          visualData: 42.69131886070029/464.6118334188868/330/3013//
+        '[Vajz8qcvs9XdoTWJjJy-j]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" mmKsA58hBbV63e2G04Njl/alpacaAPI
+          visualData: 551.6093940143121/1119.1877951449578/330/2971//
+        '[fh34gSFlN_wBhVqrnNqMx]:text "Text"':
+          data:
+            text: PATCH
+          outgoingConnections:
+            - output->"Update Order" jS5NvxomG7x1UVG7V07JN/method
+          visualData: 913.4750812008858/667.6410716557749/330/2971//
+        '[jS5NvxomG7x1UVG7V07JN]:httpCall "Update Order"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: POST
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: true
+            useHeadersInput: true
+            useMethodInput: true
+            useUrlInput: true
+          outgoingConnections:
+            - json->"Graph Output" 8x-6HK_QS2Q0z9IBpbPgo/value
+          visualData: 1682.7699125536992/1019.68838848288/575.537892235543/2998/var(--node-color-2)/var(--node-color-2)
+        '[mOHt4Oe0ukYMRcg-IAjiy]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Object" vFsMQJPo04t5y3AcofHZy/limit
+          visualData: 629.1485650201622/1849.0915903294306/205/3009//
+        '[mmKsA58hBbV63e2G04Njl]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Update Order" jS5NvxomG7x1UVG7V07JN/headers
+          visualData: 1037.2582853627061/1105.288170532464/230/2971//
+        '[n96FB5LSFJARqT4NRZciA]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" mmKsA58hBbV63e2G04Njl/alpacasecret
+          visualData: 546.0844971462011/1310.9950380362156/330/2971//
+        '[nvYz3IKa1Qq9CCxgbXBkG]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Evaluate" mOHt4Oe0ukYMRcg-IAjiy/a
+            - data->"Object" vFsMQJPo04t5y3AcofHZy/stop
+          visualData: -3992.1438065061548/1443.2626935301855/330/3015/var(--node-color-3)/var(--grey-darkish)
+        '[roS765YaWxjJowCiZZQh1]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 1000
+          outgoingConnections:
+            - value->"Evaluate" mOHt4Oe0ukYMRcg-IAjiy/b
+          visualData: 97.04119062871071/2093.7719062784377/230/3016//
+        '[vFsMQJPo04t5y3AcofHZy]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "qty": "{{qty}}",
+                "time_in_force": "gtc",
+                "stop_price": "{{stop}}",
+                "limit_price": "{{limit}}"
+              }
+          outgoingConnections:
+            - output->"Update Order" jS5NvxomG7x1UVG7V07JN/req_body
+          visualData: 989.0519022545599/1516.8069946095848/331.00553368584497/3017//
+    UAMS5NzsFhUF0RehNLrMc:
+      metadata:
+        description: ""
+        id: UAMS5NzsFhUF0RehNLrMc
+        name: Level 1/F. ⏰ Too Slow to Buy
+      nodes:
+        '[Dd6eHEjpqFlEjxQNCM181]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -850.0342895298202/788.9609166660805/330/1941/var(--node-color-3)/var(--grey-darkish)
+        '[SxuFA1fPLTechdvG__0BQ]:compare "Compare"':
+          data:
+            comparisonFunction: ==
+          outgoingConnections:
+            - output->"If" ideAeWxYfBHjtTew3zVMq/if
+          visualData: 470.0853000611683/731.9756194280062/190/1940//
+        '[Z2gw4R19v69NMvjYDYruO]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If you need to update order. If the current "
+          visualData: 741.0630599632506/557.9100444909049/630/1934//
+        '[dC1Fb2PZJF9xw6gs2Ti7l]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: -109.50601972939586/585.1959994810451/330/1938/var(--node-color-6)/var(--grey-darkish)
+        '[ideAeWxYfBHjtTew3zVMq]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          visualData: 966.8778598816521/735.7391994266461/155/null/var(--node-color-2)/var(--grey-darkish)
+        '[j9RY9-QxCkrLOp5_hFhvF]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4926.895268134808/512.335461757168/330/1920/var(--node-color-3)/var(--grey-darkish)
+        '[ufVyJ23EGti75UdRv1pxh]:subGraph "Subgraph"':
+          data:
+            graphId: ""
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: 432.44950007476814/1078.2249793028886/330/null//
+    UILZyf0MDSYhfyHHkLxz0:
+      metadata:
+        description: ""
+        id: UILZyf0MDSYhfyHHkLxz0
+        name: Level 2/1st UPtrend
+      nodes:
+        '[0Cq2eEnTRiQxs5Qbp0a9U]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" YKDh94tp03J218vgwTmtb/alpacasecret
+          visualData: 596.6890437092163/1484.4359440861938/330/1669//
+        '[8qCTqZ5Y6tHEKsgSRjn60]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 10
+          outgoingConnections:
+            - value->"Evaluate" wVtNO2UGxkYrp5qMCRrTh/b
+          visualData: 2393.2960638265185/1474.4195614200871/230/1699/var(--node-color-4)/var(--node-color-4)
+        '[HnY2RMJ3avl-4DlHIWLww]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: false
+            headers: ""
+            method: GET
+            text: ""
+            url: https://data.alpaca.markets/v1beta3/crypto/us/latest/bars?symbols=BTC%2FUSD
+            useHeadersInput: true
+            useUrlInput: true
+          outgoingConnections:
+            - json->"Extract Object Path" kTuFPgGz9BsJiYjzn9bc0/object
+          visualData: 1574.9635267387262/1017.9612209346265/280/1666/var(--node-color-2)/var(--node-color-2)
+        '[JAt3-7H3MwqKtl-U5Iotc]:text "Text"':
+          data:
+            body: ""
+            text: https://data.alpaca.markets/v1beta3/crypto/us/bars?symbols=BTC%2FUSD&timeframe=1Min&start={{startDate}}&end={{endDate}}&limit=50&sort=desc
+          outgoingConnections:
+            - output->"Http Call" HnY2RMJ3avl-4DlHIWLww/url
+          visualData: 1092.6270260181475/828.3087451572859/330/1669//
+        '[SJrAFEMowYG518dJlKDeg]:subGraph "Subgraph"':
+          data:
+            graphId: d3TZx8IM8CcbWFxUCoQLR
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" n7ODr4dtdyiZHDzR7Sy8e/value
+          visualData: 3559.034596150252/1104.7208680771926/330/1702/var(--node-color-6)/var(--grey-darkish)
+        '[V6UV5j_A_ifdLTrigV5mU]:code "Code"':
+          data:
+            code: |
+              const timestamp = new Date().toISOString();
+              return {
+                  output: {
+                      type: 'string',
+                      value: timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" JAt3-7H3MwqKtl-U5Iotc/endDate
+          visualData: 296.5645837128091/765.5785224212907/230/1671//
+        '[YKDh94tp03J218vgwTmtb]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" HnY2RMJ3avl-4DlHIWLww/headers
+          visualData: 1085.330780496809/1220.306466853549/230/1669//
+        '[bDBFcVpkCfvt3xmbiuLA6]:code "Code"':
+          data:
+            code: |
+              const now = new Date();
+              const twentyMinutesAgo = new Date(now.getTime() - 10 * 60 * 1000);
+              const timecode = twentyMinutesAgo.toISOString();
+
+              return {
+                  output: {
+                      type: 'datetime',
+                      value: timecode
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" JAt3-7H3MwqKtl-U5Iotc/startDate
+          visualData: 631.4740922888878/477.72241587656185/230/1672//
+        '[f0ibVDKFc39S9Z__AXv8O]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -274.25156709799774/771.0755307308473/330/1694/var(--node-color-3)/var(--grey-darkish)
+        '[fm02gERIv_gPjn6jAvCdC]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" YKDh94tp03J218vgwTmtb/alpacaAPI
+          visualData: 619.1293990061604/1140.4187067665248/330/1669//
+        '[kTuFPgGz9BsJiYjzn9bc0]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.bars.BTC/USD.[1].h
+            usePathInput: false
+          outgoingConnections:
+            - match->"Evaluate" wVtNO2UGxkYrp5qMCRrTh/a
+          visualData: 2208.725621607919/1062.2339802110582/280/1695//
+        '[n7ODr4dtdyiZHDzR7Sy8e]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4289.839561938406/1034.6949977681516/330/1701/var(--node-color-3)/var(--grey-darkish)
+        '[wVtNO2UGxkYrp5qMCRrTh]:evaluate "Evaluate"':
+          data:
+            operation: +
+          outgoingConnections:
+            - output->"Subgraph" SJrAFEMowYG518dJlKDeg/prices
+          visualData: 2872.657459694614/1092.2348294762724/205/1698//
+    WcV8tYkaYgnwPtRZ21-qE:
+      metadata:
+        description: ""
+        id: WcV8tYkaYgnwPtRZ21-qE
+        name: Level 1/If Need To Sell
+      nodes:
+        '[-uo4-PXLiCof-KIPe2own]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 35
+          outgoingConnections:
+            - value->"Compare" 0uAt-U-9-0STqhjqQxZih/b
+          visualData: -173.28726885771135/785.7028634816747/230/175//
+        '[0uAt-U-9-0STqhjqQxZih]:compare "Compare"':
+          data:
+            comparisonFunction: ">"
+          outgoingConnections:
+            - output->"If" hP4NgiHzU55CLIRX969ju/if
+          visualData: 212.81328066682107/648.9370012522768/190/174//
+        '[5F-BDHxm23lGXu6pZV8-6]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the current high > -25 of the entry"
+          visualData: -1696.3652821880416/654.0759887566585/630/141//
+        '[AYjSfwN-XLP5pNJ6KCJOE]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Subgraph" I8cQSWBLGL9nymmLHjfFR/input
+            - output->"Compare" 0uAt-U-9-0STqhjqQxZih/a
+            - output->"If" hP4NgiHzU55CLIRX969ju/value
+          visualData: -1490.2018090690658/874.4954467189677/155/null/var(--node-color-2)/var(--grey-darkish)
+        '[GmX-Gt_gkvmJmII9WsHtQ]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - high->"Evaluate" JTs-KtvzIFUVC9bSy-Hx9/a
+          visualData: -3158.261954183553/506.52770090061904/330/147/var(--node-color-6)/var(--grey-darkish)
+        '[I8cQSWBLGL9nymmLHjfFR]:subGraph "Subgraph"':
+          data:
+            graphId: XJHPKulJdSZqEHYo9S8lK
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" TAsJwjPotHSuEiYUdUmA_/value
+          visualData: -820.8880336150979/1059.7114388366488/330/161/var(--node-color-6)/var(--grey-darkish)
+        '[IhqSZCzwTV7j38DR_Quij]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Evaluate" JTs-KtvzIFUVC9bSy-Hx9/b
+          visualData: -3172.743574934364/907.4304056296988/330/150/var(--node-color-6)/var(--grey-darkish)
+        '[JTs-KtvzIFUVC9bSy-Hx9]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Compare" Wz9FIV2VGoFA8xJQZyk8a/a
+            - output->"If" AYjSfwN-XLP5pNJ6KCJOE/value
+          visualData: -2624.6952076317984/715.1854872069819/205/149//
+        '[TAsJwjPotHSuEiYUdUmA_]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: output
+          visualData: -119.55777405150984/1086.0689977334512/330/162/var(--node-color-3)/var(--grey-darkish)
+        '[U5ZLATFgrUyhUAwiKN_5m]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 1599.408714654099/1073.9632192574823/330/178/var(--node-color-3)/var(--grey-darkish)
+        '[ViqGw-uDG2yvWMsulc6Fx]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: output
+          visualData: 2198.714514481684/530.2396983844094/330/176/var(--node-color-3)/var(--grey-darkish)
+        '[VsDXNItZmNn68Ti9uJVev]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: -25
+          outgoingConnections:
+            - value->"Compare" Wz9FIV2VGoFA8xJQZyk8a/b
+          visualData: -2612.914387003667/1077.4457215220295/230/152//
+        '[Wz9FIV2VGoFA8xJQZyk8a]:compare "Compare"':
+          data:
+            comparisonFunction: ">"
+          outgoingConnections:
+            - output->"If" AYjSfwN-XLP5pNJ6KCJOE/if
+          visualData: -1993.7540603646908/803.3489520498224/190/121//
+        '[XZLbl8fmeXJqShli3pM0L]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the current high is > 25"
+          visualData: 648.3599496127495/594.2306563605177/630/166//
+        '[bC_NxYHCRDwk_0aa9sYtt]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: -3742.364667216272/675.2583791164697/330/125/var(--node-color-3)/var(--grey-darkish)
+        '[hP4NgiHzU55CLIRX969ju]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Graph Output" U5ZLATFgrUyhUAwiKN_5m/value
+            - output->"Subgraph" jvALX3Q6TGomOocV4zkbp/input
+          visualData: 868.2373742738583/817.2642163038435/155/173/var(--node-color-2)/var(--grey-darkish)
+        '[jvALX3Q6TGomOocV4zkbp]:subGraph "Subgraph"':
+          data:
+            graphId: cxY1LQ1uuilK44nFnTW6A
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" ViqGw-uDG2yvWMsulc6Fx/value
+          visualData: 1582.311266402992/627.4374342971208/330/177/var(--node-color-6)/var(--grey-darkish)
+    XJHPKulJdSZqEHYo9S8lK:
+      metadata:
+        description: ""
+        id: XJHPKulJdSZqEHYo9S8lK
+        name: Level 2/Sell Loss
+      nodes:
+        '[-1Ku4k9bv87U_chgutKCZ]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: output
+          visualData: 2872.6661892238535/1150.9097157077006/330/3124/var(--node-color-3)/var(--grey-darkish)
+        '[-8BiZEyfHJosXfZgUqN6l]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Object" UR2ocvbFqZdvGFKLYbLde/stop_price
+            - qty->"Object" UR2ocvbFqZdvGFKLYbLde/qty
+          visualData: 474.14730810520774/1088.165663267247/330/3140/var(--node-color-6)/var(--grey-darkish)
+        '[0YlpkHqeMPw--7vcJohuW]:graphInput "Graph Input"':
+          data:
+            dataType: any
+            id: input
+            useDefaultValueInput: false
+          visualData: -652.7025725981459/1142.319038952461/330/3139/var(--node-color-3)/var(--grey-darkish)
+        '[42SJ2QEOgVmiKYD44w1-V]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" nos_1gXCMCZGwpS2vkMU3/alpacaAPI
+          visualData: 1049.5206304999388/698.6689650276813/330/3123//
+        '[8BV4d_TlaDAiLD6fZLygG]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - low->"Evaluate" f1sPJ2jQVqqxpS93L_aL7/a
+          visualData: -48.114500173069786/1533.2575056264302/330/3137/var(--node-color-6)/var(--grey-darkish)
+        '[H-CRS1Z672DYbxybmqwMM]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### Create a stop limit sell at the lowest\r\n"
+          visualData: 1860.3265173404047/359.15924311520695/630/3125//
+        '[QPcyrckkmQRuoEZzsrEnq]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" nos_1gXCMCZGwpS2vkMU3/alpacasecret
+          visualData: 1069.3347389814467/972.8464210552819/330/3123//
+        '[UR2ocvbFqZdvGFKLYbLde]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "symbol": "BTC/USD",
+                "qty": "{{qty}}",
+                "side": "sell",
+                "type": "stop_limit",
+                "time_in_force": "gtc",
+                "limit_price": "{{limit_price}}",
+                "stop_price": "{{stop_price}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" h2zis_xRjN_GbGTImWVXm/req_body
+          visualData: 1115.0541612492402/1259.8782440550845/345.1655354367831/3123//
+        '[f1sPJ2jQVqqxpS93L_aL7]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Object" UR2ocvbFqZdvGFKLYbLde/limit_price
+          visualData: 570.6827467680464/1506.779008610811/205/3136//
+        '[h2zis_xRjN_GbGTImWVXm]:httpCall "Sell Order"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: POST
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: true
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Graph Output" -1Ku4k9bv87U_chgutKCZ/value
+          visualData: 1903.213039207938/1060.9208109025735/645.5085253956813/3123/var(--node-color-2)/var(--node-color-2)
+        '[nos_1gXCMCZGwpS2vkMU3]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" h2zis_xRjN_GbGTImWVXm/headers
+          visualData: 1517.4452056582827/797.5118554593463/230/3123//
+        '[wytkqRysiym3v1269T0LE]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 500
+          outgoingConnections:
+            - value->"Evaluate" f1sPJ2jQVqqxpS93L_aL7/b
+          visualData: -42.138955456421655/1850.388673938172/230/3138//
+    XkxBRmtzMtDGpFwV5VdMI:
+      metadata:
+        description: ""
+        id: XkxBRmtzMtDGpFwV5VdMI
+        name: Level 1/D. ⛔ Cancel Open Orders
+      nodes:
+        '[ELPgu6wRRFplUk7dadOON]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Array" KEl1C2Rpolf8SErKb76Kc/input2
+          visualData: 1239.7124255138756/930.2904132217727/330/2802/var(--node-color-3)/var(--grey-darkish)
+        '[JWlRtq3CFR3U1rk4pyt-E]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 3966.7946833263472/815.8419590011765/330/2805/var(--node-color-3)/var(--grey-darkish)
+        '[KEl1C2Rpolf8SErKb76Kc]:array "Array"':
+          data:
+            flatten: true
+            flattenDeep: false
+          outgoingConnections:
+            - output->"Destructure" VpUy0RyfvzeuyHnLG23eN/object
+          visualData: 3145.31497779432/849.497871747552/230/null//
+        '[QQ1Goy9sLha861o8b7lqm]:httpCall "Cancel Orders"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: DELETE
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: false
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Array" KEl1C2Rpolf8SErKb76Kc/input1
+          visualData: 2635.5088602129495/447.9706440723412/280/2801/var(--node-color-2)/var(--node-color-2)
+        '[VpUy0RyfvzeuyHnLG23eN]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[1]
+          outgoingConnections:
+            - match_0->"Graph Output" JWlRtq3CFR3U1rk4pyt-E/value
+          visualData: 3562.164238400633/904.8834378420972/280/2804//
+        '[iDoyKCXIKsWh5IV_vQ436]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Cancel Orders" QQ1Goy9sLha861o8b7lqm/headers
+          visualData: 2227.579413977514/468.96204253519/230/2801//
+        '[ozqry_bDXIk6-heKB8zKT]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" iDoyKCXIKsWh5IV_vQ436/alpacasecret
+          visualData: 1706.1756449979157/701.6891642057731/330/2801//
+        '[xwQjwT4ijuSiOAU62QOZh]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" iDoyKCXIKsWh5IV_vQ436/alpacaAPI
+          visualData: 1695.1061332511595/404/330/2801//
+    XpimCrlkU5nHieA68GT05:
+      metadata:
+        description: ""
+        id: XpimCrlkU5nHieA68GT05
+        name: Untitled Graph
+      nodes: {}
+    YCGbNuceD7TNmWxdh3qUc:
+      metadata:
+        description: ""
+        id: YCGbNuceD7TNmWxdh3qUc
+        name: Level 0/🎯 Main Loop
+      nodes:
+        '[7Uk-RliLQz2HZEqFk0ePD]:delay "Delay"':
+          data:
+            delay: 1000
+          outgoingConnections:
+            - output1->"Loop Controller" IzuSc8j7p7zCCAAepHWhR/input1
+          visualData: 2324.414938448031/691.1625161368062/205/13//
+        '[IzuSc8j7p7zCCAAepHWhR]:loopController "Loop Controller"':
+          data:
+            maxIterations: 100000
+            text: ""
+          outgoingConnections:
+            - break->"Graph Output" sE251kf53JsGXCDh_IznL/value
+            - iteration->"Subgraph" PbZKMewduSIAPqvVgSsja/input
+          visualData: 851.4112876552986/430.5813050302202/280/11/var(--node-color-6)/var(--node-color-6)
+        '[PbZKMewduSIAPqvVgSsja]:subGraph "Subgraph"':
+          data:
+            graphId: Celnb9lSKkDgco4XDUw6c
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" 7Uk-RliLQz2HZEqFk0ePD/input1
+          visualData: 1705.3845403574985/687.0283820285745/330/18/var(--node-color-6)/var(--grey-darkish)
+        '[USDaqpGuNg8KRvHRQXe6S]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### Keep running infinitely"
+          visualData: 672.436144383989/296.8300491968051/630/16//
+        '[sE251kf53JsGXCDh_IznL]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 1699.5275477492355/214.31963387032545/330/15/var(--node-color-3)/var(--grey-darkish)
+    aQEE6dvs0MsvUuLqUwMG6:
+      metadata:
+        description: ""
+        id: aQEE6dvs0MsvUuLqUwMG6
+        name: Level 1/E. 📝 Check Orders
+      nodes:
+        '[05usXeTKUGmPXItJml-r2]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" Rz7yXBUo_TpMGzqDn2wjD/alpacaAPI
+          visualData: 737.2457066825439/746.3594812763756/330/1953//
+        '[2xj1OX-xnT18dm0hl2cC1]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: stopPrice
+          visualData: 4744.743756511118/607.5472479826894/330/1953/var(--node-color-3)/var(--grey-darkish)
+        '[5ygW4olPmEAITXQ1XP-OQ]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: side
+          visualData: 3144.160103607399/1910.454840022006/330/1961/var(--node-color-3)/var(--grey-darkish)
+        '[6pnI6xD8SHnQabF53q7oY]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" _22DrGdqg1ggGKPvUEJp-/value
+          visualData: 2427.1211787926472/2101.1888906392965/180/null//
+        '[9eWVqAGIT82Y7oiqy7yxF]:compare "Compare"':
+          data:
+            comparisonFunction: ==
+          outgoingConnections:
+            - output->"Bool" wLBvr4rn_z5tsYnZluVQN/input
+          visualData: 3799.959804908118/290.41072913723997/190/1953//
+        '[AZKlJx1B26YXq7D6qaWm8]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: false
+            headers: ""
+            method: GET
+            text: ""
+            url: https://api.alpaca.markets/v2/orders?status=open
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Extract Object Path" TGYvK7Qmfan3kC3OG_YTr/object
+            - json->"Extract Object Path" XES5GDWcktCqCgJ-p3E85/object
+            - json->"Extract Object Path" Y-wW2tQd-FZctlYbdW6Hn/object
+            - json->"Extract Object Path" bcT5LNqvwxo2Y0bJU2OZ_/object
+            - json->"Extract Object Path" hFABprOwBzUrJfLx0B422/object
+            - json->"Extract Object Path" kyOeyLePXUznm5NP9jYjL/object
+            - json->"Extract Object Path" ntVUUtd808tq_RBkB7g9g/object
+            - json->"Extract Object Path" oL16n6Ylybg9HgVwvjKvL/object
+          visualData: 1628.202627390756/868.8083380707517/280/1953/var(--node-color-2)/var(--node-color-2)
+        '[J5quYNynH0sl5MnyfihIk]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Compare" 9eWVqAGIT82Y7oiqy7yxF/a
+          visualData: 3066.77245425207/100.83552432780107/180/1953//
+        '[KcMvoP8H3SPogcUtIk-0s]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" 5ygW4olPmEAITXQ1XP-OQ/value
+          visualData: 2664.287102622266/1867.7212350739348/180/1960//
+        '[QwMVdG5MVoL_EeRZhWYZ1]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" Rz7yXBUo_TpMGzqDn2wjD/alpacasecret
+          visualData: 734.3345956593869/1098.4282906917947/330/1953//
+        '[Rz7yXBUo_TpMGzqDn2wjD]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" AZKlJx1B26YXq7D6qaWm8/headers
+          visualData: 1203.4470881731916/826.2472413634002/230/1953//
+        '[TGYvK7Qmfan3kC3OG_YTr]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].order_type
+            usePathInput: false
+          outgoingConnections:
+            - match->"Graph Output" vU0Wwtx-JvR-LKV74OIHX/value
+          visualData: 2098.593442319155/1235.79479737401/280/1955//
+        '[T_45oIos2YKiCH8niZGn9]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: 576.2416411343509/1391.5653631256082/330/null/var(--node-color-3)/var(--grey-darkish)
+        '[XES5GDWcktCqCgJ-p3E85]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].symbol
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" J5quYNynH0sl5MnyfihIk/input1
+          visualData: 2307.419132009408/228.49571082969942/280/1953//
+        '[Y-wW2tQd-FZctlYbdW6Hn]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].qty
+            usePathInput: false
+          outgoingConnections:
+            - match->"Graph Output" rdGEENMrZ1NZ95xqQFvC8/value
+          visualData: 2261.3792272185688/2516.192442925206/280/1969//
+        '[_22DrGdqg1ggGKPvUEJp-]:graphOutput "Graph Output"':
+          data:
+            dataType: any
+            id: partially_filled
+          visualData: 2905.1117798269597/2196.4041598547005/330/1968/var(--node-color-3)/var(--grey-darkish)
+        '[azPrSc0l4_W6m_w1jdx9r]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" gHPmPpIS7kVR0bz9SC5DT/value
+          visualData: 3832.759899346287/904.23509923353/180/1953//
+        '[bcT5LNqvwxo2Y0bJU2OZ_]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].status
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" 6pnI6xD8SHnQabF53q7oY/input1
+          visualData: 1993.1979067699851/2077.445919151267/280/1967//
+        '[dQ8Lgre9wF8n1dGHTRGCH]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" mylcFttVEvYpy7XXSYJf6/value
+          visualData: 3878.061046096149/1186.9319151059217/180/1953//
+        '[gHPmPpIS7kVR0bz9SC5DT]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: limitPrice
+          visualData: 4804.585821828809/840.2817731800435/330/1953/var(--node-color-3)/var(--grey-darkish)
+        '[h3OAjP8FkPrv3Mb4X-vP3]:text "Text"':
+          data:
+            text: BTC/USD
+          outgoingConnections:
+            - output->"Compare" 9eWVqAGIT82Y7oiqy7yxF/b
+          visualData: 2967.129739863658/516.7130505780008/330/1953//
+        '[hFABprOwBzUrJfLx0B422]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].stop_price
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" vhSOlVdWsObxDt0zk5o8s/input1
+          visualData: 3014.498194218364/769.1130385492822/280/1953//
+        '[kyOeyLePXUznm5NP9jYjL]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].limit_price
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" azPrSc0l4_W6m_w1jdx9r/input1
+          visualData: 2989.256534130007/1084.8143722615064/280/1953//
+        '[mylcFttVEvYpy7XXSYJf6]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: id
+          visualData: 4863.055204609349/1109.8695837232285/330/1953/var(--node-color-3)/var(--grey-darkish)
+        '[ntVUUtd808tq_RBkB7g9g]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].side
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" KcMvoP8H3SPogcUtIk-0s/input1
+          visualData: 2098.593442319155/1617.5723215457797/280/1956//
+        '[oL16n6Ylybg9HgVwvjKvL]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].id
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" dQ8Lgre9wF8n1dGHTRGCH/input1
+          visualData: 2974.7348543321623/1346.7263666906738/280/1953//
+        '[rdGEENMrZ1NZ95xqQFvC8]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: qty
+          visualData: 2829.0052229162643/2500.553643245856/330/1970/var(--node-color-3)/var(--grey-darkish)
+        '[vU0Wwtx-JvR-LKV74OIHX]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: order_type
+          visualData: 2544.3004898835306/1469.9387413287234/330/1954/var(--node-color-3)/var(--grey-darkish)
+        '[vZySOjyJZ3yO5LzISLeZY]:boolean "Bool"':
+          data:
+            value: false
+          outgoingConnections:
+            - value->"Coalesce" 6pnI6xD8SHnQabF53q7oY/input2
+            - value->"Coalesce" J5quYNynH0sl5MnyfihIk/input2
+            - value->"Coalesce" KcMvoP8H3SPogcUtIk-0s/input2
+            - value->"Coalesce" azPrSc0l4_W6m_w1jdx9r/input2
+            - value->"Coalesce" dQ8Lgre9wF8n1dGHTRGCH/input2
+            - value->"Coalesce" vhSOlVdWsObxDt0zk5o8s/input2
+          visualData: 2519.473859138724/690.34518252766/160/1953//
+        '[vhSOlVdWsObxDt0zk5o8s]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" 2xj1OX-xnT18dm0hl2cC1/value
+          visualData: 3829.1099618852313/568.938122743795/180/1953//
+        '[wLBvr4rn_z5tsYnZluVQN]:boolean "Bool"':
+          data:
+            useValueInput: true
+            value: false
+          outgoingConnections:
+            - value->"Graph Output" zLTdsd1ZvcpDvFPEm8-aQ/value
+          visualData: 4264.923960887005/298.08135564188916/160/1965//
+        '[zLTdsd1ZvcpDvFPEm8-aQ]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: ifSell
+          visualData: 4697.341654718941/258.9956423679546/330/1953/var(--node-color-3)/var(--grey-darkish)
+    cxY1LQ1uuilK44nFnTW6A:
+      metadata:
+        description: ""
+        id: cxY1LQ1uuilK44nFnTW6A
+        name: Level 2/Sell Profit
+      nodes:
+        '[03RBgos5huEtb33_VX6H-]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Evaluate" 3udFbGWUQbihBQVrpq_I1/a
+            - qty->"Object" Bkq6RQy8Tth7rqyCuki6c/qty
+          visualData: 221.52595980669287/1123.8939445693875/330/3146/var(--node-color-6)/var(--grey-darkish)
+        '[0B943pTLsTVRfpoDe4R_f]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: output
+          visualData: 2981.0780353150244/1144.1865004462327/330/3150/var(--node-color-3)/var(--grey-darkish)
+        '[3udFbGWUQbihBQVrpq_I1]:evaluate "Evaluate"':
+          data:
+            operation: +
+          outgoingConnections:
+            - output->"Object" Bkq6RQy8Tth7rqyCuki6c/limit_price
+          visualData: 851.0622296281819/1507.5443898940002/205/3145//
+        '[Bkq6RQy8Tth7rqyCuki6c]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "symbol": "BTC/USD",
+                "qty": "{{qty}}",
+                "side": "sell",
+                "type": "limit",
+                "time_in_force": "gtc",
+                "limit_price": "{{limit_price}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" c2N782S-guXiq06lkl_x_/req_body
+          visualData: 1115.0541612492402/1259.8782440550845/345.1655354367831/3123//
+        '[FtcaDVoZAPBXru0nJafOG]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" RYvnBXXHk3wPcfvexF--Y/alpacasecret
+          visualData: 1069.3347389814467/972.8464210552819/330/3123//
+        '[LJpyIdz90dNydmc2bC96G]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 25
+          outgoingConnections:
+            - value->"Evaluate" 3udFbGWUQbihBQVrpq_I1/b
+          visualData: 250.1748656344816/1424.3446010333341/230/3147//
+        '[R8PgifZ8KMxLgBw58eOc6]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          visualData: -301.0754743858023/1325.6782344286066/330/3149/var(--node-color-6)/var(--grey-darkish)
+        '[RYvnBXXHk3wPcfvexF--Y]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" c2N782S-guXiq06lkl_x_/headers
+          visualData: 1517.4452056582827/797.5118554593463/230/3123//
+        '[c2N782S-guXiq06lkl_x_]:httpCall "Sell Order"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: POST
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: true
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Graph Output" 0B943pTLsTVRfpoDe4R_f/value
+          visualData: 1903.213039207938/1060.9208109025735/645.5085253956813/3123/var(--node-color-2)/var(--node-color-2)
+        '[jyW4Vv-Bk5wkWSBwVCkTc]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" RYvnBXXHk3wPcfvexF--Y/alpacaAPI
+          visualData: 1049.5206304999388/698.6689650276813/330/3123//
+        '[yGk1gZ8zEDIFY126rZv4p]:graphInput "Graph Input"':
+          data:
+            dataType: any
+            id: input
+            useDefaultValueInput: false
+          visualData: -652.7025725981459/1142.319038952461/330/3139/var(--node-color-3)/var(--grey-darkish)
+    d3TZx8IM8CcbWFxUCoQLR:
+      metadata:
+        description: ""
+        id: d3TZx8IM8CcbWFxUCoQLR
+        name: Level 1/H. 🛒 Create Buy Order
+      nodes:
+        '[0RbBEZDsRZVXkMPmoslwk]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 500
+          outgoingConnections:
+            - value->"Evaluate" s0asssmVAuV3J8zWMq5JM/b
+          visualData: 1467.857222894081/2426.2125203892933/230/1936//
+        '[23AT_ilI-D8i9NfKKu7Zn]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" CCWZkP9FTh7vS10PA8yxW/alpacasecret
+          visualData: -909.8290332937844/1808.8000161182263/330/1932//
+        '[2awxNlXw3uOdpzV9I_87h]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.bars.BTC/USD.l
+            usePathInput: false
+          outgoingConnections:
+            - match->"Evaluate" f8P7mFVQDde9FWxddOR6i/b
+          visualData: 1041.530860204663/1989.4707302507336/280/1927//
+        '[3HMRHfGSRlWrxZWUuqGt5]:httpCall "Submit Buy Order"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: POST
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: true
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Graph Output" 83HCAYLAKA6fIB-Ql-BAY/value
+          visualData: 2926.1631124980586/1623.7385048025772/354.1433426969634/1927/var(--node-color-2)/var(--node-color-2)
+        '[7VM8R-5z2NL8KRVtii9h7]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: GET
+            text: ""
+            url: https://api.alpaca.markets/v2/account
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"buying power" yQOkpu6c9YIWsB2pcY4ta/object
+          visualData: 96.43605245325944/1426.3714659807224/280/1927/var(--node-color-2)/var(--node-color-2)
+        '[83HCAYLAKA6fIB-Ql-BAY]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 3636.697660384834/1684.3457033374984/330/1935/var(--node-color-3)/var(--grey-darkish)
+        '[CCWZkP9FTh7vS10PA8yxW]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" 7VM8R-5z2NL8KRVtii9h7/headers
+            - output->"Http Call" H0h1BfKe-C6OvZ_67mrKn/headers
+            - output->"Submit Buy Order" 3HMRHfGSRlWrxZWUuqGt5/headers
+          visualData: -461.7185666169481/1633.4654505222907/230/1931//
+        '[H0h1BfKe-C6OvZ_67mrKn]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: GET
+            url: https://data.alpaca.markets/v1beta3/crypto/us/latest/bars?symbols=BTC%2FUSD
+            useHeadersInput: true
+          outgoingConnections:
+            - json->"Extract Object Path" 2awxNlXw3uOdpzV9I_87h/object
+          visualData: 81.90205085526532/1921.3908581393507/280/1927/var(--node-color-2)/var(--node-color-2)
+        '[OxEsN9KAZJMPZa2VeuE11]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" CCWZkP9FTh7vS10PA8yxW/alpacaAPI
+          visualData: -929.6431417752923/1534.6225600906257/330/1930//
+        '[d2KJb8k0LKSqUe0Cf3Fdt]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Evaluate" f8P7mFVQDde9FWxddOR6i/a
+          visualData: 1108.9305277067983/1552.3449774818673/205/1927//
+        '[f8P7mFVQDde9FWxddOR6i]:evaluate "Evaluate"':
+          data:
+            operation: /
+          outgoingConnections:
+            - output->"Number" syK-RuF4lvjVKMJUxQdoJ/input
+          visualData: 1528.5317103875714/1662.6213785271543/205/1927//
+        '[fULYmQbVXzabpx5-SqBTl]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: prices
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Evaluate" s0asssmVAuV3J8zWMq5JM/a
+            - data->"Object" j5twMqhv__5XcRRRvAr_j/stop_price
+          visualData: -1364.6431313447008/2274.7431352000344/330/1937/var(--node-color-3)/var(--grey-darkish)
+        '[j5twMqhv__5XcRRRvAr_j]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "side": "buy",
+                "type": "stop_limit",
+                "time_in_force": "gtc",
+                "symbol": "BTC/USD",
+                "qty": "{{qty}}",
+                "limit_price": "{{limit}}",
+                "stop_price":"{{stop_price}}"
+              }
+          outgoingConnections:
+            - output->"Submit Buy Order" 3HMRHfGSRlWrxZWUuqGt5/req_body
+          visualData: 2304.6369309017846/1642.7097740005947/382.946363768071/1927//
+        '[s0asssmVAuV3J8zWMq5JM]:evaluate "Evaluate"':
+          data:
+            operation: +
+          outgoingConnections:
+            - output->"Object" j5twMqhv__5XcRRRvAr_j/limit
+          visualData: 1934.7699924848457/2111.3355514306504/205/null//
+        '[soQ-hjglBIQmn0wo8CD1E]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 25005
+          outgoingConnections:
+            - value->"Evaluate" d2KJb8k0LKSqUe0Cf3Fdt/b
+          visualData: 682.6033643937271/1777.0521023751376/230/1927/var(--node-color-4)/var(--node-color-4)
+        '[syK-RuF4lvjVKMJUxQdoJ]:number "Number"':
+          data:
+            round: true
+            roundTo: 8
+            useValueInput: true
+            value: 0
+          outgoingConnections:
+            - value->"Object" j5twMqhv__5XcRRRvAr_j/qty
+          visualData: 1887.6777671766235/1669.157819665816/230/1933//
+        '[yQOkpu6c9YIWsB2pcY4ta]:extractObjectPath "buying power"':
+          data:
+            path: $.cash
+            usePathInput: false
+          outgoingConnections:
+            - match->"Evaluate" d2KJb8k0LKSqUe0Cf3Fdt/a
+          visualData: 653.963894553367/1504.41027329588/280/1927//
+    kw6CAFNd1sjQ0kOK6BHXb:
+      metadata:
+        description: ""
+        id: kw6CAFNd1sjQ0kOK6BHXb
+        name: Level 1/A. 💼 Check Holding
+      nodes:
+        '[5buDpeJzFfU0Q8LGHrSj4]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Http Call" lGYfthtVK25r7cE-6DFUm/headers
+          visualData: 2639.6060446085658/105.10030473709162/230/1937//
+        '[82ZXtAneDOxIIKLBCmHsD]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: 1601.6062146615586/138.2687609712002/330/1937/var(--node-color-3)/var(--grey-darkish)
+        '[CmfTLaJSkstyvpSVTZE6T]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].avg_entry_price
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" v0ACEmgeMNdWfeB0-xRVE/input1
+          visualData: 4433.228613943618/581.8597416792168/280/1937//
+        '[I_LObuszS2siPhjk_CvOK]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: entryPrice
+          visualData: 7208.913526775481/324.90702045701266/330/1930/var(--node-color-3)/var(--grey-darkish)
+        '[JBK-Ul5RWpeuPK2h9xLAV]:text "Text"':
+          data:
+            text: "0"
+          outgoingConnections:
+            - output->"Coalesce" MihcCsVrtwmbE6ZqH9DiU/input2
+            - output->"Coalesce" XWOgemkATuOVZ5r1EHj4q/input2
+            - output->"Coalesce" v0ACEmgeMNdWfeB0-xRVE/input2
+          visualData: 4398.990752496711/-9.552240344371285/330/1937//
+        '[LGB7jfgPQsAczfckM-WKH]:code "Code"':
+          data:
+            code: |
+              if (inputs.array.value.length === 0) {
+                  return {
+                      output: {
+                          type: 'number',
+                          value: 0
+                      }
+                  };
+              } else {
+                  return {
+                      output: {
+                          type: 'any[]',
+                          value: inputs.array.value
+                      }
+                  };
+              }
+            inputNames:
+              - array
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Extract Object Path" CmfTLaJSkstyvpSVTZE6T/object
+            - output->"Extract Object Path" RjWVOJJ74YTruW1Kxn6BS/object
+            - output->"Extract Object Path" lmmZ-zW9Ek6czxjB6NDla/object
+          visualData: 3708.018577474677/-28.17343802697883/230/1937//
+        '[MihcCsVrtwmbE6ZqH9DiU]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" TyC0m616IST9dBJGT8Y-2/value
+          visualData: 5096.833048421721/-334.2160316214872/180/1937//
+        '[Mlsuy6DdnOAnJIjuU0IY2]:text "Text"':
+          data:
+            text: BTCUSD
+          outgoingConnections:
+            - output->"Compare" yo90o532gRTeK2wAfJ7kT/b
+          visualData: 4989.775097336788/337.6398050827622/330/1937//
+        '[RjWVOJJ74YTruW1Kxn6BS]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].qty
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" MihcCsVrtwmbE6ZqH9DiU/input1
+          visualData: 4412.295026457356/-292.28115982641975/280/1937//
+        '[TyC0m616IST9dBJGT8Y-2]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: qty
+          visualData: 7161.31711699667/-391.2333459674477/330/1926/var(--node-color-3)/var(--grey-darkish)
+        '[UPUm-7-fVqdAT8tlHUEUR]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: ifHoldings
+          visualData: 7205.230400059752/-128.993581331052/330/1922/var(--node-color-3)/var(--grey-darkish)
+        '[XWOgemkATuOVZ5r1EHj4q]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Compare" yo90o532gRTeK2wAfJ7kT/a
+          visualData: 5103.132876602245/32.94906636495648/180/1937//
+        '[YWEuI3cEw1aWzFAdQeVAJ]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" 5buDpeJzFfU0Q8LGHrSj4/alpacaAPI
+          visualData: 2173.404663117917/25.212544650067457/330/1937//
+        '[eY7TpvN4KM2zfjZV9skGb]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: ifHoldings
+          visualData: 7201.163468612985/126.26029240031964/330/1924/var(--node-color-3)/var(--grey-darkish)
+        '[lGYfthtVK25r7cE-6DFUm]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: false
+            headers: ""
+            method: GET
+            text: ""
+            url: https://api.alpaca.markets/v2/positions
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Code" LGB7jfgPQsAczfckM-WKH/array
+          visualData: 3053.737833108018/151.216058979526/469.4107901569955/1937/var(--node-color-2)/var(--node-color-2)
+        '[lmmZ-zW9Ek6czxjB6NDla]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.[0].symbol
+            usePathInput: false
+          outgoingConnections:
+            - match->"Coalesce" XWOgemkATuOVZ5r1EHj4q/input1
+          visualData: 4429.2097221743215/253.80149469017874/280/1937//
+        '[oQ-pl-KZsZErhG2P42eN3]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" 5buDpeJzFfU0Q8LGHrSj4/alpacasecret
+          visualData: 2180.49355209476/280.2813540654861/330/1937//
+        '[v0ACEmgeMNdWfeB0-xRVE]:coalesce "Coalesce"':
+          outgoingConnections:
+            - output->"Graph Output" I_LObuszS2siPhjk_CvOK/value
+          visualData: 6365.063162663938/489.8859073992815/180/1939//
+        '[yW_apuLWGQXyLUx1Hns0-]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: If you're holding btc
+          visualData: 6160.504223165533/-190.44300806082475/630/1938//
+        '[yo90o532gRTeK2wAfJ7kT]:compare "Compare"':
+          data:
+            comparisonFunction: ==
+          outgoingConnections:
+            - output->"If" zVQT1KU4d4ynbrEuzCNVj/if
+            - output->"If" zVQT1KU4d4ynbrEuzCNVj/value
+          visualData: 5520.027636993763/144.60927529535502/190/1937//
+        '[zVQT1KU4d4ynbrEuzCNVj]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Graph Output" eY7TpvN4KM2zfjZV9skGb/value
+            - output->"Graph Output" UPUm-7-fVqdAT8tlHUEUR/value
+          visualData: 6349.575681194136/25.98571778652871/155/1938/var(--node-color-2)/var(--grey-darkish)
+    qvq_thg2sElP8yF-ZSzau:
+      metadata:
+        description: ""
+        id: qvq_thg2sElP8yF-ZSzau
+        name: Level 1/K. 💸 First Sell
+      nodes:
+        '[7Un9pH-hVerajhJYKuVtJ]:context "Context"':
+          data:
+            dataType: string
+            id: alpacaSecret
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" EzBHAF1aToiptOu_Ki-2q/alpacasecret
+          visualData: 2369.8713697614203/2038.8752431323544/330/3100//
+        '[AXyGufiOCcK0R8mLUF6xl]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Evaluate" F4JDS3F549CdsTtTr3yZp/a
+          visualData: 943.8737791237352/2230.490167942697/330/3116/var(--node-color-6)/var(--grey-darkish)
+        '[C9-7lU0bR10uumwtyLYwR]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 10
+          outgoingConnections:
+            - value->"Evaluate" F4JDS3F549CdsTtTr3yZp/b
+          visualData: 955.4111302496219/2505.3599375707304/230/3116//
+        '[EzBHAF1aToiptOu_Ki-2q]:object "Object"':
+          data:
+            body: ""
+            jsonTemplate: |-
+              {
+                "APCA-API-KEY-ID": "{{alpacaAPI}}",
+                "APCA-API-SECRET-KEY": "{{alpacasecret}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" KNVhvK341RUxRIEAaIf4F/headers
+          visualData: 2817.9818364382563/1863.5406775364188/230/3100//
+        '[F4JDS3F549CdsTtTr3yZp]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Evaluate" wIkgc96JDhqWpOOw5Vwvm/a
+            - output->"Object" sp38mUCRKKklgFozB_4Ko/stop_price
+          visualData: 1380.1679185446249/2418.713215235284/205/3119//
+        '[H5DBG5FjvBZYqGcJKnUOi]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - qty->"Object" sp38mUCRKKklgFozB_4Ko/qty
+          visualData: 1847.1364698563698/2163.168887567164/330/3122/var(--node-color-6)/var(--grey-darkish)
+        '[KNVhvK341RUxRIEAaIf4F]:httpCall "Sell Order"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: POST
+            url: https://api.alpaca.markets/v2/orders
+            useBodyInput: true
+            useHeadersInput: true
+            useUrlInput: false
+          outgoingConnections:
+            - json->"Graph Output" LVEugASVGSigkpgn9nNDb/value
+          visualData: 3203.7496699879116/2126.949632979646/645.5085253956813/3084/var(--node-color-2)/var(--node-color-2)
+        '[LVEugASVGSigkpgn9nNDb]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 4264.954462544543/2175.659805299214/330/3085/var(--node-color-3)/var(--grey-darkish)
+        '[Vh3zbuMt13k0WpbujnFro]:context "alpacaAPI"':
+          data:
+            dataType: string
+            id: alpacaAPI
+            useDefaultValueInput: false
+          outgoingConnections:
+            - data->"Object" EzBHAF1aToiptOu_Ki-2q/alpacaAPI
+          visualData: 2350.0572612799124/1764.6977871047538/330/3100//
+        '[Yg1wU_7pEqsUqWd4bTKrY]:graphInput "Graph Input"':
+          data:
+            dataType: string
+            id: input
+            useDefaultValueInput: false
+          visualData: 132.28346271533883/2354.5662720629184/330/3121/var(--node-color-3)/var(--grey-darkish)
+        '[iIhObIKRQn2sYaKz3dcXc]:number "Number"':
+          data:
+            round: false
+            roundTo: 0
+            value: 1000
+          outgoingConnections:
+            - value->"Evaluate" wIkgc96JDhqWpOOw5Vwvm/b
+          visualData: 1356.1139428235756/2879.5937721426885/230/3120//
+        '[sp38mUCRKKklgFozB_4Ko]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "symbol": "BTC/USD",
+                "qty": "{{qty}}",
+                "side": "sell",
+                "type": "stop_limit",
+                "time_in_force": "gtc",
+                "limit_price": "{{limit_price}}",
+                "stop_price": "{{stop_price}}"
+              }
+          outgoingConnections:
+            - output->"Sell Order" KNVhvK341RUxRIEAaIf4F/req_body
+          visualData: 2415.590792029214/2325.907066132157/345.1655354367831/3078//
+        '[wIkgc96JDhqWpOOw5Vwvm]:evaluate "Evaluate"':
+          data:
+            operation: "-"
+          outgoingConnections:
+            - output->"Object" sp38mUCRKKklgFozB_4Ko/limit_price
+          visualData: 1931.9943612295467/2634.541469332563/205/3118//
+    wERREeqqgQuWFQ2C47TvJ:
+      metadata:
+        description: ""
+        id: wERREeqqgQuWFQ2C47TvJ
+        name: Level 1/C. 💸 If Buy Order
+      nodes:
+        '[2efipum2st4QskHVaULWM]:text "Text"':
+          data:
+            text: buy
+          outgoingConnections:
+            - output->"Compare" lodTUrzdsebqKp9SuF4bf/b
+          visualData: -79.42587609887417/370.8402243068684/330/1929//
+        '[5NzZ22kHwwDXVhRKNQdov]:boolean "Bool"':
+          data:
+            value: false
+          outgoingConnections:
+            - value->"Array" kvYn_8Ax8p0WM-uXZL03s/input2
+          visualData: 31.09823232839642/852.4926547162372/160/1937//
+        '[7GvsFnfKCjQ7g5FbZFA4S]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the side is buy"
+          visualData: 799.9608966521204/159.8870108830668/630/1921//
+        '[7jASgd-t5xfHFc8ihM4DX]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+          outgoingConnections:
+            - match_0->"Bool" Kr0sizIgL_jc4IFIHZoeT/input
+            - match_0->"Graph Output" WF8CyjEbKyYE5QSHeDi6j/value
+          visualData: 1526.082225265688/269.62340922084167/280/1940//
+        '[8fJhkIhklelvzL_OpOVUL]:boolean "Bool"':
+          data:
+            value: true
+          outgoingConnections:
+            - value->"Array" kvYn_8Ax8p0WM-uXZL03s/input1
+          visualData: 35.75187899901832/627.9542028587296/160/1936//
+        '[Kr0sizIgL_jc4IFIHZoeT]:boolean "Bool"':
+          data:
+            useValueInput: true
+            value: false
+          outgoingConnections:
+            - value->"Graph Output" YJ189_oifpd0-Ym9Z6hDw/value
+          visualData: 2153/157/160/1953//
+        '[Nt_mttLccEfTci5XmNxUx]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+          outgoingConnections:
+            - match_1->"Bool" gcRxjQ8qqRCLuCg_t5lkj/input
+            - match_1->"Graph Output" wxnn5vObiV6nu4KZ1CztQ/value
+          visualData: 1526.082225265688/469.62340922084167/280/1940//
+        '[QEkn3Ik-s_76BvbFASJbd]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 2472.6513491349588/571.1690327934677/330/1949/var(--node-color-3)/var(--grey-darkish)
+        '[WF8CyjEbKyYE5QSHeDi6j]:graphOutput "Graph Output"':
+          data:
+            dataType: string[]
+            id: value
+          visualData: 2470.3450525294293/329.18894784566186/330/1951/var(--node-color-3)/var(--grey-darkish)
+        '[YJ189_oifpd0-Ym9Z6hDw]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 2485.073348457844/111.50749361403417/330/1952/var(--node-color-3)/var(--grey-darkish)
+        '[gcRxjQ8qqRCLuCg_t5lkj]:boolean "Bool"':
+          data:
+            useValueInput: true
+            value: false
+          outgoingConnections:
+            - value->"Graph Output" QEkn3Ik-s_76BvbFASJbd/value
+          visualData: 2127/588/160/1950//
+        '[iok-gKZul9H_2dWz8Z8fp]:graphInput "Graph Input"':
+          data:
+            dataType: string[]
+            id: input
+            useDefaultValueInput: false
+          visualData: -665.9393530561591/484.3491171230245/330/1928/var(--node-color-3)/var(--grey-darkish)
+        '[kvYn_8Ax8p0WM-uXZL03s]:array "Array"':
+          data:
+            flatten: true
+            flattenDeep: false
+          outgoingConnections:
+            - output->"If" ubEMtJNrQUo4xcPNN5x0O/value
+          visualData: 423.16796432829324/522.0837411020808/230/1935//
+        '[lodTUrzdsebqKp9SuF4bf]:compare "Compare"':
+          data:
+            comparisonFunction: ==
+          outgoingConnections:
+            - output->"If" ubEMtJNrQUo4xcPNN5x0O/if
+          visualData: 524.9579305482041/239.51473539673805/190/1925//
+        '[ubEMtJNrQUo4xcPNN5x0O]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Destructure" Nt_mttLccEfTci5XmNxUx/object
+            - output->"Destructure" 7jASgd-t5xfHFc8ihM4DX/object
+          visualData: 977.276241960914/356.904061226171/155/null/var(--node-color-2)/var(--grey-darkish)
+        '[wxnn5vObiV6nu4KZ1CztQ]:graphOutput "Graph Output"':
+          data:
+            dataType: string[]
+            id: value
+          visualData: 2338.923053206544/846.8504870250954/330/1948/var(--node-color-3)/var(--grey-darkish)
+        '[zYI7LFAxhjqhGnWBsqYJ5]:subGraph "Subgraph"':
+          data:
+            graphId: aQEE6dvs0MsvUuLqUwMG6
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - side->"Compare" lodTUrzdsebqKp9SuF4bf/a
+          visualData: -80.54233225085132/58.399543193064915/330/1926/var(--node-color-6)/var(--grey-darkish)
+    zQkHcvNCyO-gYlxmCZsPa:
+      metadata:
+        description: ""
+        id: zQkHcvNCyO-gYlxmCZsPa
+        name: New Folder/Old
+      nodes:
+        '[5TkoXQNpkFnuuvI3ZyoU3]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Graph Output" CjSjVSd0wGrekk6_zVAaA/value
+            - output->"Subgraph" enLXQ_DGZXzkl6mHYg_RL/input
+          visualData: 3760.346913424317/2822.795639529132/130.53222459615245/186/var(--node-color-2)/var(--grey-darkish)
+        '[6a0DwA0MDK5GOsSBoDpl2]:array "Array"':
+          data:
+            flatten: true
+            flattenDeep: false
+          outgoingConnections:
+            - output->"If" a7OVQSmibjDxfqZRXprCi/value
+          visualData: 1406.3558035947576/2445.742234980823/230/180//
+        '[70o5TGwdy9WeBiu2woQ02]:compare "Compare"':
+          data:
+            comparisonFunction: <
+          outgoingConnections:
+            - output->"If" wzIyNjlbQaWGV_Vhphi9M/if
+          visualData: 3265.594310121275/1972.8718981675129/190/194//
+        '[77DbuVdO_XGefAX2LgbOY]:boolean "Bool"':
+          data:
+            value: false
+          visualData: 801.0528297261023/3133.7609601952654/160/180//
+        '[9B6DE7LDtrBeO37bv_xNw]:subGraph "Subgraph"':
+          data:
+            graphId: XkxBRmtzMtDGpFwV5VdMI
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" gwVuEXdYiIwQR3d4Y_qb3/input1
+          visualData: 4281.601075879773/1785.096196452253/330/185/var(--node-color-6)/var(--grey-darkish)
+        '[9zCx8cmB7vl_nWafpXsHx]:subGraph "Subgraph"':
+          data:
+            graphId: 62BRCVLRRs9blLoVj_ptk
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Array" 6a0DwA0MDK5GOsSBoDpl2/input1
+          visualData: 715.4055361522717/2445.6949373645757/330/180/var(--node-color-6)/var(--grey-darkish)
+        '[A3AZtuT84k1BfClc3waGI]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.data.quotes
+            usePathInput: false
+          visualData: 3581.2344066214946/795.1933098116974/280/1964//
+        '[CjSjVSd0wGrekk6_zVAaA]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 4334.531934731084/3078.6609434249935/330/186/var(--node-color-3)/var(--grey-darkish)
+        '[DqCEcWvoWujaGTQULyawQ]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 5722.294060248761/1781.533880458907/330/189/var(--node-color-3)/var(--grey-darkish)
+        '[E4vsNySFwQobOxLxJNZA0]:subGraph "Subgraph"':
+          data:
+            graphId: kw6CAFNd1sjQ0kOK6BHXb
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - entryPrice->"Array" 6a0DwA0MDK5GOsSBoDpl2/input2
+          visualData: 714.0737315012977/2665.3809348948625/330/180/var(--node-color-6)/var(--grey-darkish)
+        '[IJYrIlUMvEPgivYg1I_YV]:subGraph "Subgraph"':
+          data:
+            graphId: qYzdgwVsD5P9WlnIAsaYH
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" Xo76eNU36l73VSvhrlcHl/value
+          visualData: 5382.810074700019/2723.5006637027454/330/197/var(--node-color-6)/var(--grey-darkish)
+        '[IiV4LS1-cZ4EZdgL4Z4v7]:subGraph "Subgraph"':
+          data:
+            graphId: 2ZmjV40FG5iqx3xafof0A
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Graph Output" DqCEcWvoWujaGTQULyawQ/value
+          visualData: 5251.6761525711545/1791.914226834466/330/188/var(--node-color-6)/var(--grey-darkish)
+        '[MEYnjOD9LOs_iDC9Y4YSV]:compare "Compare"':
+          data:
+            comparisonFunction: ==
+          outgoingConnections:
+            - output->"If" a7OVQSmibjDxfqZRXprCi/if
+          visualData: 1406.4616827591412/2180.128686962338/190/180//
+        '[ODuvKYxQMAILZCh45xBDP]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+          outgoingConnections:
+            - match_0->"Compare" XHiMqZWzDwBvoCu0ixcM0/a
+            - match_1->"Compare" XHiMqZWzDwBvoCu0ixcM0/b
+          visualData: 2709.6190383442467/2544.6399863536626/280/181//
+        '[UaIlAtWYldRkYsBB4AAis]:delay "Delay"':
+          data:
+            delay: 10000
+          outgoingConnections:
+            - output1->"Subgraph" IJYrIlUMvEPgivYg1I_YV/input
+          visualData: 4901.980302784468/2715.1588670908736/205/196//
+        '[XHiMqZWzDwBvoCu0ixcM0]:compare "Compare"':
+          data:
+            comparisonFunction: ">"
+          outgoingConnections:
+            - output->"If" 5TkoXQNpkFnuuvI3ZyoU3/if
+          visualData: 3213.8900228278653/2552.4772043134944/190/183//
+        '[Xo76eNU36l73VSvhrlcHl]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 5890.952978373025/2716.578915464358/330/198/var(--node-color-3)/var(--grey-darkish)
+        '[a7OVQSmibjDxfqZRXprCi]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Destructure" ODuvKYxQMAILZCh45xBDP/object
+            - falseOutput->"If" 5TkoXQNpkFnuuvI3ZyoU3/value
+            - output->"Destructure" wb4a9a4qMn4W1TBR9JDOs/object
+            - output->"If" wzIyNjlbQaWGV_Vhphi9M/value
+          visualData: 2016.790083719305/2345.7951072033275/155/78/var(--node-color-2)/var(--grey-darkish)
+        '[b5NVTx7EmZLLtc4YeHCxK]:httpCall "Http Call"':
+          data:
+            body: ""
+            errorOnNon200: true
+            headers: ""
+            method: GET
+            url: ""
+            useBodyInput: false
+            useHeadersInput: true
+            useUrlInput: true
+          outgoingConnections:
+            - json->"Extract Object Path" A3AZtuT84k1BfClc3waGI/object
+          visualData: 2552.123543794482/786.1250370876407/552.4790946173493/1964/var(--node-color-2)/var(--grey-darkish)
+        '[bSU1qWF8eVDJSFcjUjj2B]:text "Text"':
+          data:
+            text: https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/historical?id=1&time_start={{timestart}}&time_end={{timend}}&
+          outgoingConnections:
+            - output->"Http Call" b5NVTx7EmZLLtc4YeHCxK/url
+          visualData: 1193.1716758107245/748.2446774765497/1043.6635437174473/1964//
+        '[enLXQ_DGZXzkl6mHYg_RL]:subGraph "Subgraph"':
+          data:
+            graphId: XkxBRmtzMtDGpFwV5VdMI
+            useAsGraphPartialOutput: false
+            useErrorOutput: false
+          outgoingConnections:
+            - output->"Delay" UaIlAtWYldRkYsBB4AAis/input1
+          visualData: 4324.4224217793435/2716.993265794732/330/195/var(--node-color-6)/var(--grey-darkish)
+        '[fkSnxrkcHOl3ZvQZvHFwm]:graphOutput "Graph Output"':
+          data:
+            dataType: boolean
+            id: if
+          visualData: 4318.198787754395/2154.1477476585856/330/185/var(--node-color-3)/var(--grey-darkish)
+        '[fkr_ob5FblfuOte8z8z4D]:code "now"':
+          data:
+            code: |
+              const now = Math.floor(Date.now() / 1000);
+              return {
+                  output: {
+                      type: 'number',
+                      value: now
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" bSU1qWF8eVDJSFcjUjj2B/timend
+          visualData: 659/1009.61442365166/230/1964//
+        '[geRY2BSNEHe9ciokl9oGi]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the current order is limit (profit)"
+          visualData: 1839.4262171532318/2100.6633677083196/630/69//
+        '[gwVuEXdYiIwQR3d4Y_qb3]:delay "Delay"':
+          data:
+            delay: 10000
+          outgoingConnections:
+            - output1->"Subgraph" IiV4LS1-cZ4EZdgL4Z4v7/input
+          visualData: 4835.552685114337/1787.5258445846027/205/187//
+        '[kIkipPX8pgcSe7X5hhG-c]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the current low is below the entry price"
+          visualData: 3547.6269136021047/1767.635281494717/630/185//
+        '[t7jS2WfumYIJuKY3kMFCB]:object "Object"':
+          data:
+            jsonTemplate: |-
+              {
+                "X-CMC_PRO_API_KEY": "07b1607c-e496-4350-8a32-836de4ef1d3b",
+                "symbol": "btc"
+              }
+          outgoingConnections:
+            - output->"Http Call" b5NVTx7EmZLLtc4YeHCxK/headers
+          visualData: 1574.1455864787763/1116.8683273124589/600.2277682641491/1964//
+        '[tV3LruhsgsCByVcP7Fd-l]:comment "Comment"':
+          data:
+            backgroundColor: rgba(0,0,0,0.05)
+            color: rgba(255,255,255,1)
+            height: 600
+            text: "#### If the current low is above the entry price"
+          visualData: 3519.4974908281547/2596.4540717700293/630/186//
+        '[wb4a9a4qMn4W1TBR9JDOs]:destructure "Destructure"':
+          data:
+            paths:
+              - $.[0]
+              - $.[1]
+          outgoingConnections:
+            - match_0->"Compare" 70o5TGwdy9WeBiu2woQ02/a
+            - match_1->"Compare" 70o5TGwdy9WeBiu2woQ02/b
+          visualData: 2702.349482038963/2168.9508986341048/280/181//
+        '[wzIyNjlbQaWGV_Vhphi9M]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Graph Output" fkSnxrkcHOl3ZvQZvHFwm/value
+            - output->"Subgraph" 9B6DE7LDtrBeO37bv_xNw/input
+          visualData: 3761.602673635717/1985.9579110813993/155/185/var(--node-color-2)/var(--grey-darkish)
+        '[xCZqtbPzRqIn-FDLAUVNp]:code "in the past "':
+          data:
+            code: >
+              const twentyMinutesInPast = Date.now() - (20 * 60 * 1000);
+
+              return {
+                  output: {
+                      type: 'number',
+                      value: Math.floor(twentyMinutesInPast / 1000) // Convert to Unix timestamp
+                  }
+              };
+            inputNames: []
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Text" bSU1qWF8eVDJSFcjUjj2B/timestart
+          visualData: 669.5085402664363/579/230/1964//
+        '[xHCQ0_uul7B0iB3XnrzML]:boolean "Bool"':
+          data:
+            value: true
+          outgoingConnections:
+            - value->"Array" 6a0DwA0MDK5GOsSBoDpl2/input3
+          visualData: 796.9585522403486/2928.1088722454056/160/180//
+  metadata:
+    description: ""
+    id: cDEhNydkpVD5-w5Vr9_1A
+    mainGraphId: YCGbNuceD7TNmWxdh3qUc
+    title: 2.8 Vindicci Layer 2 Stop
+  plugins: []
