@@ -34,7 +34,7 @@ data:
       metadata:
         description: ""
         id: 8EsM8Lf0INd7NkEl8b1dp
-        name: Level 2/⚔️ Organize Round
+        name: Level 2/🤝 Organize Round
       nodes:
         '[0tKNiqA1QJeBCda-iVvpo]:array "Array"':
           data:
@@ -42,7 +42,7 @@ data:
             flattenDeep: true
           outgoingConnections:
             - output->"If" Tx52pJvIN63aaZyHmzJPl/value
-          visualData: 754.2623923883874/4402.16850264005/230/3156//
+          visualData: 613.8349098436515/4405.094097513413/230/3191//
         '[2LUCr0x6p6RyKC3GoErxP]:graphInput "Graph Input"':
           data:
             dataType: string[]
@@ -51,7 +51,7 @@ data:
           outgoingConnections:
             - data->"Array" 0tKNiqA1QJeBCda-iVvpo/input3
             - data->"Code" iqVm1d9ZCtRBd2rdeUX87/input
-          visualData: -557.7293940059739/4237.801982611522/574.1261765731938/3184/var(--node-color-3)/var(--grey-darkish)
+          visualData: -715.7103118688018/4342.147373908606/574.1261765731938/3190/var(--node-color-3)/var(--grey-darkish)
         '[2sKZrir6XXaLlDM24FS_E]:code "pair"':
           data:
             code: |
@@ -71,19 +71,19 @@ data:
               - output
           outgoingConnections:
             - output->"Subgraph" D-Q5GoA90yxUC7nO14Obc/input
-          visualData: 3048.779645497717/4879.917171260298/230/3177//
+          visualData: 3083.640629394066/4630.044014529117/230/3201//
         '[AMA282V_PZtVVxy2v8AMl]:boolean "Bool"':
           data:
             value: true
           outgoingConnections:
             - value->"Array" 0tKNiqA1QJeBCda-iVvpo/input1
-          visualData: 368.4192646224159/4426.781049716698/160/3186//
+          visualData: 227.99178207767994/4429.706644590061/160/3191//
         '[ATkSXE8akEKf4qtrsOcKL]:text "Text"':
           data:
             text: "{{input}}"
           outgoingConnections:
             - output->"Code" n6uX9NtAkhBd5jlmUf8wL/input
-          visualData: 2432.8106351886545/4207.900722594403/330/3171//
+          visualData: 2494.4291961417534/4014.5872339476064/330/3192//
         '[D-Q5GoA90yxUC7nO14Obc]:subGraph "Subgraph"':
           data:
             graphId: L9B7gV5nnfjqRkPZ3vZEb
@@ -93,7 +93,7 @@ data:
           outgoingConnections:
             - output->"shuffle" i8elA1SBW974CE0_12Fbv/input
           splitRunMax: 100
-          visualData: 3524.0009799949535/4990.582043477066/330/3188/var(--node-color-6)/var(--grey-darkish)
+          visualData: 3621.0530500720824/4639.024820044625/330/3202/var(--node-color-6)/var(--grey-darkish)
         '[HTvv-1TTW-2eH02eg9BSX]:code "Code"':
           data:
             code: |
@@ -110,7 +110,7 @@ data:
               - output
           outgoingConnections:
             - output->"Graph Output" YqwNcWlVYu3j2dJtCbnBk/value
-          visualData: 3522.5526775597036/4210.137523747099/230/3174//
+          visualData: 3584.1712385128026/4016.8240351003024/230/3192//
         '[Lhj5NppdFN24rXkJ1oD0B]:number "Number"':
           data:
             round: false
@@ -118,7 +118,7 @@ data:
             value: 1
           outgoingConnections:
             - value->"Compare" twiQbDwqDdC8GmF0YSiVC/b
-          visualData: 347.1528598633118/4184.473496985233/230/3132//
+          visualData: 206.72537731857585/4187.399091858596/230/3191//
         '[Tx52pJvIN63aaZyHmzJPl]:if "If"':
           data:
             unconnectedControlFlowExcluded: true
@@ -138,12 +138,12 @@ data:
           data:
             dataType: string[]
             id: output
-          visualData: 4731.114487074852/4849.447929327417/330/3169/var(--node-color-3)/var(--grey-darkish)
+          visualData: 4792.733048027952/4656.13444068062/330/3192/var(--node-color-3)/var(--grey-darkish)
         '[YqwNcWlVYu3j2dJtCbnBk]:graphOutput "Graph Output"':
           data:
             dataType: string
             id: output
-          visualData: 4099.0470328905885/4216.689888582364/330/3175/var(--node-color-3)/var(--grey-darkish)
+          visualData: 4160.665593843688/4023.376399935567/330/3192/var(--node-color-3)/var(--grey-darkish)
         '[d-3pg_gi8NlXQzFzA-9Qp]:destructure "Destructure"':
           data:
             paths:
@@ -153,12 +153,12 @@ data:
               - $.[3]
           outgoingConnections:
             - match_0->"Graph Output" zRciYdtC6fmJ5Y5EJ-JfC/value
-          visualData: 1915.0823324391988/4471.770619411591/280/3115//
+          visualData: 1976.700893392298/4278.457130764794/280/3192//
         '[eLm64wi2Pvuxz6CF2TCGS]:graphOutput "Graph Output"':
           data:
             dataType: boolean
             id: continue
-          visualData: 2438.853346757968/3916.3803886815326/330/3164/var(--node-color-3)/var(--grey-darkish)
+          visualData: 2500.471907711067/3723.0669000347357/330/3192/var(--node-color-3)/var(--grey-darkish)
         '[i-vTHgfv4LQsqYcr3inWw]:destructure "Destructure"':
           data:
             paths:
@@ -169,7 +169,7 @@ data:
           outgoingConnections:
             - match_1->"Graph Output" eLm64wi2Pvuxz6CF2TCGS/value
             - match_2->"Text" ATkSXE8akEKf4qtrsOcKL/input
-          visualData: 1912.0950242265844/4071.9085799330496/280/2972//
+          visualData: 1972.5053390616329/3976.460040247129/280/3194//
         '[i8elA1SBW974CE0_12Fbv]:code "shuffle"':
           data:
             code: >
@@ -188,7 +188,7 @@ data:
               - output
           outgoingConnections:
             - output->"Graph Output" XzOzcPcvmtAoIqAqvvmAj/value
-          visualData: 4181.128073580321/4868.908813590269/230/3181//
+          visualData: 4267.82905849276/4636.550734581609/230/3203//
         '[iqVm1d9ZCtRBd2rdeUX87]:code "Code"':
           data:
             code: |
@@ -205,7 +205,7 @@ data:
               - output
           outgoingConnections:
             - output->"Compare" twiQbDwqDdC8GmF0YSiVC/a
-          visualData: 344.91235004556245/4009.8041061259532/230/3133//
+          visualData: 204.4848675008265/4012.729700999316/230/3191//
         '[lGTluDSxao4cT8z5gXou6]:code "Code"':
           data:
             code: |
@@ -222,7 +222,7 @@ data:
               - output
           outgoingConnections:
             - output->"Extract Object Path" uQpuuHoePAuZdzzz9-7-U/object
-          visualData: 1958.3448489142359/4742.908632544979/230/3135//
+          visualData: 2019.963409867335/4614.838443205433/230/3193//
         '[n6uX9NtAkhBd5jlmUf8wL]:code "Code"':
           data:
             code: |
@@ -239,31 +239,31 @@ data:
               - output
           outgoingConnections:
             - output->"Code" HTvv-1TTW-2eH02eg9BSX/input
-          visualData: 2989.5525183468985/4208.331395847824/230/3173//
+          visualData: 3051.1710792999975/4015.017907201027/230/3192//
         '[psS3x7Eqa2nfkjA_JSEa9]:boolean "Bool"':
           data:
             value: false
           outgoingConnections:
             - value->"Array" 0tKNiqA1QJeBCda-iVvpo/input2
-          visualData: 380.5319220869791/4673.703927489859/160/3185//
+          visualData: 240.10443954224314/4676.629522363221/160/3191//
         '[twiQbDwqDdC8GmF0YSiVC]:compare "Compare"':
           data:
             comparisonFunction: ==
           outgoingConnections:
             - output->"If" Tx52pJvIN63aaZyHmzJPl/if
-          visualData: 777.5842733176722/4165.126281960577/190/3155//
+          visualData: 637.1567907729363/4168.05187683394/190/3191//
         '[uQpuuHoePAuZdzzz9-7-U]:extractObjectPath "Extract Object Path"':
           data:
             path: $.[0].
             usePathInput: false
           outgoingConnections:
             - match->"pair" 2sKZrir6XXaLlDM24FS_E/input
-          visualData: 2464.4082911023115/4853.631683203605/280/3165//
+          visualData: 2544.1500460592993/4601.11595991752/280/3195//
         '[zRciYdtC6fmJ5Y5EJ-JfC]:graphOutput "Graph Output"':
           data:
             dataType: boolean
             id: continue
-          visualData: 2436.913159528058/4537.203659145414/330/3187/var(--node-color-3)/var(--grey-darkish)
+          visualData: 2504.701736029941/4309.184296410117/330/3192/var(--node-color-3)/var(--grey-darkish)
     IbR6mFRm0V3ylfWhOI7Uz:
       metadata:
         description: ""
@@ -396,7 +396,7 @@ data:
       metadata:
         description: ""
         id: L9B7gV5nnfjqRkPZ3vZEb
-        name: Level 3/🥊 Fight
+        name: Level 3/🥊 Compare
       nodes:
         '[-1EgbDj5e592Bk3vro0ZD]:comment "Comment"':
           data:
@@ -404,14 +404,14 @@ data:
             color: rgba(255,255,255,1)
             height: 600
             text: "#### If A Won"
-          visualData: 6219.768582350203/-748.7220334952793/630/3160//
+          visualData: 6734.753668412182/-817.7771466218715/630/3204//
         '[-HOFxJ4u5xHuFGQLkyYbG]:destructure "Destructure"':
           data:
             paths:
               - $.[1]
           outgoingConnections:
             - match_0->"Delay" Tq0oJxU46cNtHskOvQfI6/input1
-          visualData: 6982.106872839518/-358.1830857823372/280/3160//
+          visualData: 7497.091958901497/-427.23819890892935/280/3204//
         '[1-oyx8OXiPMJrWYkGC08f]:chat "Chat"':
           data:
             additionalParameters: []
@@ -455,19 +455,19 @@ data:
           data:
             dataType: string
             id: output
-          visualData: 7921.40850972643/-698.861897248871/330/3160/var(--node-color-3)/var(--grey-darkish)
+          visualData: 8436.393595788408/-767.9170103754632/330/3204/var(--node-color-3)/var(--grey-darkish)
         '[531yn_qT70lBdNSpiJOB9]:graphOutput "Graph Output"':
           data:
             dataType: string
             id: output
-          visualData: 7936.147622524263/-354.9160255028392/330/3160/var(--node-color-3)/var(--grey-darkish)
+          visualData: 8451.132708586241/-423.9711386294314/330/3204/var(--node-color-3)/var(--grey-darkish)
         '[6AEnJCG6qoqDLlHyIhxCt]:if "If"':
           data:
             unconnectedControlFlowExcluded: true
           outgoingConnections:
             - falseOutput->"Destructure" -HOFxJ4u5xHuFGQLkyYbG/object
             - output->"Destructure" d9E6WE4tzmYsvz7MVOvKY/object
-          visualData: 6425.987297646047/-541.6863683968379/155/3160/var(--node-color-2)/var(--grey-darkish)
+          visualData: 6940.972383708026/-610.7414815234301/155/3204/var(--node-color-2)/var(--grey-darkish)
         '[7Eax8J8Z5AlbnQU1KF42c]:code "Code"':
           data:
             code: |
@@ -511,7 +511,7 @@ data:
             useUserInput: false
           outgoingConnections:
             - response->"Code" Smhrs8uepBHjLJ_MXaLBr/c
-          visualData: 4473.47785719217/-118.2702801799662/230/3170/var(--node-color-4)/var(--grey-darkish)
+          visualData: 4988.462943254149/-187.3253933065584/230/3204/var(--node-color-4)/var(--grey-darkish)
         '[8xW8_uXbq024oGGku48e-]:graphOutput "Graph Output"':
           data:
             dataType: string
@@ -561,7 +561,7 @@ data:
             delay: 100
           outgoingConnections:
             - output1->"Graph Output" 3MMq7PQevG6rFlB3ucDZN/value
-          visualData: 7450.663927320346/-704.9573930242651/205/3160//
+          visualData: 7965.649013382325/-774.0125061508572/205/3204//
         '[OpX-S_myFSlAFZ7juCznD]:number "Number"':
           data:
             round: false
@@ -621,7 +621,7 @@ data:
               - output
           outgoingConnections:
             - output->"Compare" WIbE2jMIGV1mk-Ifldlj8/a
-          visualData: 5105.471626309602/-753.0835312701007/230/3164//
+          visualData: 5620.456712371581/-822.1386443966928/230/3204//
         '[TGVzXCj_KICT7-k1_3osF]:array "Array"':
           data:
             flatten: true
@@ -634,7 +634,7 @@ data:
             delay: 100
           outgoingConnections:
             - output1->"Graph Output" 531yn_qT70lBdNSpiJOB9/value
-          visualData: 7436.259109881493/-362.30034295807803/205/3160//
+          visualData: 7951.244195943472/-431.3554560846702/205/3204//
         '[U9sdOMobruLTI-EmJ6BGj]:chat "Chat"':
           data:
             additionalParameters: []
@@ -667,7 +667,7 @@ data:
             comparisonFunction: ==
           outgoingConnections:
             - output->"If" 6AEnJCG6qoqDLlHyIhxCt/if
-          visualData: 5737.417569881329/-641.3666027186748/190/3159//
+          visualData: 6252.402655943308/-710.421715845267/190/3204//
         '[X-hOheky4S1UCuWOjpcic]:compare "Compare"':
           data:
             comparisonFunction: ">"
@@ -733,13 +733,13 @@ data:
               - $.[0]
           outgoingConnections:
             - match_0->"Delay" N6elVVmDPkBKCT-NLPyVS/input1
-          visualData: 6950.183867955386/-662.7309788373841/280/3160//
+          visualData: 7465.168954017365/-731.7860919639763/280/3204//
         '[jnL2D2tJ3kVS_LLJzEfSf]:text "Text"':
           data:
             text: "\r\n{{input}}"
           outgoingConnections:
             - output->"Chat" 83IKefX32SK-dXBtVe3NL/prompt
-          visualData: 3230.5206136327884/-122.39492092844762/330/3154//
+          visualData: 3746.076342590975/-256.81074241564886/330/3202//
         '[ojWUlmW863CWDUIlMSLHl]:code "Code"':
           data:
             code: |
@@ -790,13 +790,13 @@ data:
             useUserInput: false
           outgoingConnections:
             - response->"Code" Smhrs8uepBHjLJ_MXaLBr/b
-          visualData: 4473.297153555289/-543.696263064559/230/3168/var(--node-color-4)/var(--grey-darkish)
+          visualData: 4988.282239617268/-612.7513761911513/230/3204/var(--node-color-4)/var(--grey-darkish)
         '[tOYDLhUwn4SUAHZ9MhmY6]:text "Text"':
           data:
             text: "\r\n\r\n{{input}}"
           outgoingConnections:
             - output->"Chat" yUho43ir1LGy0RRHRi25W/prompt
-          visualData: 3199.2501656906124/-933.257675759952/330/3153//
+          visualData: 3756.9594369063834/-920.8296070232034/330/3199//
         '[v4KX27JI5dLkREjrQaaZl]:code "remove charcters"':
           data:
             code: |
@@ -847,7 +847,7 @@ data:
             useUserInput: false
           outgoingConnections:
             - response->"Code" Smhrs8uepBHjLJ_MXaLBr/a
-          visualData: 4468.201309752131/-935.6088254934826/230/3169/var(--node-color-4)/var(--grey-darkish)
+          visualData: 4983.18639581411/-1004.6639386200749/230/3204/var(--node-color-4)/var(--grey-darkish)
         '[yXP29Wb7p-cFzo-mDHF02]:graphInput "Graph Input"':
           data:
             dataType: string[]
@@ -862,7 +862,7 @@ data:
             text: "\r\n{{input}}"
           outgoingConnections:
             - output->"Chat" s7KpuXKupLjeHtPuJOOIv/prompt
-          visualData: 3779.431259731862/-282.5281363558515/330/3192//
+          visualData: 4322.855657865776/-588.3376115227663/330/3201//
     Vr5USiDLabo-0zQIdaE_f:
       metadata:
         description: ""
@@ -1005,7 +1005,7 @@ data:
               - output
           outgoingConnections:
             - output->"Pop" 7TLL8IJaixxGANqtPFGTY/array
-          visualData: -5307.557159992768/1148.2358069904053/451.8478035963602/3043//
+          visualData: -5352.351372980357/1216.7445980029581/451.8478035963602/3053//
         '[_2DO0GdnosX_QxSO4KwSy]:delay "Delay"':
           data:
             delay: 200
