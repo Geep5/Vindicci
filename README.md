@@ -20,6 +20,13 @@ Grab the latest version of Vindicci from the [GitHub repository](https://github.
 
 ---
 
+## Demo Video
+
+Watch this YouTube video for a walkthrough of the project:
+[https://youtu.be/mGBrwXTK7oc](https://youtu.be/mGBrwXTK7oc)
+
+---
+
 ## How It Works
 
 - **Data Collection:**  
