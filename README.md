@@ -1,50 +1,82 @@
 # Vindicci
 
-Vindicci is an AI-powered screener tournament that leverages TradingView for market data, Rivet to manage tournament execution, and GPT for asset analysis and evaluation. The goal is to provide a streamlined, open approach to identifying promising assets through repeated A/B comparisons.
+Vindicci is an AI-powered asset evaluation system designed to systematically identify promising investment opportunities through an innovative, tournament-style A/B screening method. It combines **TradingView** for market data, **Rivet** for workflow management, and **GPT** for intelligent asset analysis.
 
 ---
 
-## Getting Started
+## 🚀 Features
 
-### 1. Download a TradingView Screener
-Head over to [TradingView Screener](https://www.tradingview.com/screener/) and export the data as a CSV file.
-
-### 2. Download Vindicci
-Grab the latest version of Vindicci from the [GitHub repository](https://github.com/Geep5/Vindicci).
-
-### 3. Install Rivet
-- **Download & Install:** Follow the instructions at [Rivet](https://rivet.ironcladapp.com/) to set up Rivet on your system.
-- **Configure:**
-  - Add your OpenAI key in the Rivet settings.
-  - Point Rivet to the TradingView CSV file you exported earlier.
+- **AI Tournament System**: Assets compete in successive rounds, evaluated by GPT-based AI agents.
+- **Robust Analysis**: Leverages multiple evaluating agents to determine a consensus-driven best choice.
+- **Easy Integration**: Uses standard CSV exports from TradingView.
+- **Fully Customizable**: Adapt the tournament to any screening criteria or asset category.
 
 ---
 
-## Demo Video
+## 📥 Getting Started
 
-Watch this YouTube video for a walkthrough of the project:
-[https://youtu.be/mGBrwXTK7oc](https://youtu.be/mGBrwXTK7oc)
+### Step 1: Create and Export a Screener
 
----
+- Head to [TradingView Screener](https://www.tradingview.com/screener/) and create your asset list.
+- Export the screener data as a CSV file. *(Note: Requires at least a free trial TradingView account.)*
 
-## How It Works
+### Step 2: Download Vindicci
 
-- **Data Collection:**  
-  TradingView provides the raw asset data via its screener tool.
+- Clone or download the repository from [GitHub](https://github.com/Geep5/Vindicci).
 
-- **Tournament Execution:**  
-  Rivet orchestrates a tournament where assets are pitted against each other in successive rounds.
+### Step 3: Install & Configure Rivet
 
-- **AI Analysis:**  
-  GPT is integrated to analyze and evaluate the assets during the tournament, helping you identify the most promising opportunities.
+- Install Rivet from [Rivet's official site](https://rivet.ironcladapp.com/).
+- Add your OpenAI API key in Rivet settings.
+- Load the Vindicci project in Rivet and point it to your TradingView CSV file.
 
----
+### Step 4: Run the Tournament
 
-## About
-
-Made by Grant Farwell.  
-Released under the MIT License.
+- Start the Rivet workflow. Rivet runs multiple rounds of asset comparisons, each evaluated by multiple GPT instances.
+- A winner is chosen each round based on majority vote, ultimately producing a final "champion" asset.
 
 ---
 
-Feel free to contribute, provide feedback, or reach out if you need help getting started. Let's work in the open and make asset screening smarter!
+## 🎥 Demo Video
+
+Watch this short YouTube walkthrough for a clear demonstration of Vindicci:
+
+[![Watch Vindicci Demo](https://img.youtube.com/vi/mGBrwXTK7oc/0.jpg)](https://youtu.be/mGBrwXTK7oc)
+
+---
+
+## 🤖 How the AI Tournament Works
+
+1. **Data Preparation:**
+   - TradingView CSV provides initial data points for each asset.
+
+2. **Round Setup:**
+   - Assets are matched head-to-head in rounds.
+
+3. **GPT Evaluations:**
+   - Three GPT instances independently evaluate each asset pair.
+   - Each agent votes based on detailed analysis of provided prompts.
+
+4. **Progression:**
+   - The asset receiving majority votes advances to the next round.
+
+5. **Champion Selection:**
+   - Repeated rounds eliminate less promising assets until a final winner is determined.
+
+---
+
+## 📝 License
+
+Released under the [Vindicci Tournament License](LICENSE.md).
+
+---
+
+## 📣 About
+
+Created by **Grant Farwell**. Inspired by tournament methodologies from [Matcherino](https://matcherino.com), Vindicci aims to provide an open, transparent, and powerful AI-based solution for asset evaluation.
+
+Your feedback and contributions are highly encouraged! Feel free to contribute, provide suggestions, or reach out for help.
+
+Happy investing and innovating! 🚀
+
+— Grant
