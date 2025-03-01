@@ -78,12 +78,6 @@ data:
           outgoingConnections:
             - value->"Array" 0tKNiqA1QJeBCda-iVvpo/input1
           visualData: 227.99178207767994/4429.706644590061/160/3191//
-        '[ATkSXE8akEKf4qtrsOcKL]:text "Text"':
-          data:
-            text: "{{input}}"
-          outgoingConnections:
-            - output->"Code" n6uX9NtAkhBd5jlmUf8wL/input
-          visualData: 2494.4291961417534/4014.5872339476064/330/3192//
         '[D-Q5GoA90yxUC7nO14Obc]:subGraph "Subgraph"':
           data:
             graphId: L9B7gV5nnfjqRkPZ3vZEb
@@ -94,23 +88,6 @@ data:
             - output->"shuffle" i8elA1SBW974CE0_12Fbv/input
           splitRunMax: 100
           visualData: 3621.0530500720824/4639.024820044625/330/3202/var(--node-color-6)/var(--grey-darkish)
-        '[HTvv-1TTW-2eH02eg9BSX]:code "Code"':
-          data:
-            code: |
-              const modifiedString = inputs.input.value.slice(6);
-              return {
-                  output: {
-                      type: 'string',
-                      value: modifiedString
-                  }
-              };
-            inputNames:
-              - input
-            outputNames:
-              - output
-          outgoingConnections:
-            - output->"Graph Output" YqwNcWlVYu3j2dJtCbnBk/value
-          visualData: 3584.1712385128026/4016.8240351003024/230/3192//
         '[Lhj5NppdFN24rXkJ1oD0B]:number "Number"':
           data:
             round: false
@@ -143,7 +120,7 @@ data:
           data:
             dataType: string
             id: output
-          visualData: 4160.665593843688/4023.376399935567/330/3192/var(--node-color-3)/var(--grey-darkish)
+          visualData: 2505.564512378001/4003.1092259159304/330/3206/var(--node-color-3)/var(--grey-darkish)
         '[d-3pg_gi8NlXQzFzA-9Qp]:destructure "Destructure"':
           data:
             paths:
@@ -168,7 +145,7 @@ data:
               - $.[3]
           outgoingConnections:
             - match_1->"Graph Output" eLm64wi2Pvuxz6CF2TCGS/value
-            - match_2->"Text" ATkSXE8akEKf4qtrsOcKL/input
+            - match_2->"Graph Output" YqwNcWlVYu3j2dJtCbnBk/value
           visualData: 1972.5053390616329/3976.460040247129/280/3194//
         '[i8elA1SBW974CE0_12Fbv]:code "shuffle"':
           data:
@@ -223,23 +200,6 @@ data:
           outgoingConnections:
             - output->"Extract Object Path" uQpuuHoePAuZdzzz9-7-U/object
           visualData: 2019.963409867335/4614.838443205433/230/3193//
-        '[n6uX9NtAkhBd5jlmUf8wL]:code "Code"':
-          data:
-            code: |
-              const firstLine = inputs.input.value.split('\n')[0];
-              return {
-                  output: {
-                      type: 'string',
-                      value: firstLine
-                  }
-              };
-            inputNames:
-              - input
-            outputNames:
-              - output
-          outgoingConnections:
-            - output->"Code" HTvv-1TTW-2eH02eg9BSX/input
-          visualData: 3051.1710792999975/4015.017907201027/230/3192//
         '[psS3x7Eqa2nfkjA_JSEa9]:boolean "Bool"':
           data:
             value: false
@@ -404,43 +364,14 @@ data:
             color: rgba(255,255,255,1)
             height: 600
             text: "#### If A Won"
-          visualData: 6734.753668412182/-817.7771466218715/630/3204//
+          visualData: 5686.395075497286/169.51223761042718/630/3224//
         '[-HOFxJ4u5xHuFGQLkyYbG]:destructure "Destructure"':
           data:
             paths:
               - $.[1]
           outgoingConnections:
             - match_0->"Delay" Tq0oJxU46cNtHskOvQfI6/input1
-          visualData: 7497.091958901497/-427.23819890892935/280/3204//
-        '[1-oyx8OXiPMJrWYkGC08f]:chat "Chat"':
-          data:
-            additionalParameters: []
-            cache: false
-            enableFunctionUse: false
-            headers: []
-            maxTokens: 1024
-            model: gpt-4o-mini
-            parallelFunctionCalling: true
-            stop: ""
-            temperature: 0.5
-            top_p: 1
-            useAdditionalParametersInput: false
-            useAsGraphPartialOutput: false
-            useFrequencyPenaltyInput: false
-            useMaxTokensInput: false
-            useModelInput: false
-            usePresencePenaltyInput: false
-            useServerTokenCalculation: true
-            useStop: false
-            useStopInput: false
-            useTemperatureInput: false
-            useTopP: false
-            useTopPInput: false
-            useUseTopPInput: false
-            useUserInput: false
-          outgoingConnections:
-            - response->"Text" yfzx2DeWF0nkCJr9OoSVd/input
-          visualData: 2554.8271393579357/-618.0747134448317/671.571232841613/3195/var(--node-color-4)/var(--grey-darkish)
+          visualData: 6448.7333659866/560.0511853233693/280/3224//
         '[1OgnhNVVx5P0-2CWElUiE]:destructure "Destructure"':
           data:
             paths:
@@ -451,57 +382,31 @@ data:
             - match_0->"Code" AJ7rxMNrwVqzRqsAoarPh/input
             - match_1->"Array" TGVzXCj_KICT7-k1_3osF/input2
           visualData: -1722.409717840386/579.9522764225615/280/3091//
-        '[3MMq7PQevG6rFlB3ucDZN]:graphOutput "Graph Output"':
-          data:
-            dataType: string
-            id: output
-          visualData: 8436.393595788408/-767.9170103754632/330/3204/var(--node-color-3)/var(--grey-darkish)
-        '[531yn_qT70lBdNSpiJOB9]:graphOutput "Graph Output"':
-          data:
-            dataType: string
-            id: output
-          visualData: 8451.132708586241/-423.9711386294314/330/3204/var(--node-color-3)/var(--grey-darkish)
-        '[6AEnJCG6qoqDLlHyIhxCt]:if "If"':
-          data:
-            unconnectedControlFlowExcluded: true
-          outgoingConnections:
-            - falseOutput->"Destructure" -HOFxJ4u5xHuFGQLkyYbG/object
-            - output->"Destructure" d9E6WE4tzmYsvz7MVOvKY/object
-          visualData: 6940.972383708026/-610.7414815234301/155/3204/var(--node-color-2)/var(--grey-darkish)
-        '[7Eax8J8Z5AlbnQU1KF42c]:code "Code"':
-          data:
-            code: |
-              const lines = inputs.input.value.split('\n').slice(8).join('\n');
-              return {
-                  output: {
-                      type: 'string',
-                      value: lines
-                  }
-              };
-            inputNames:
-              - input
-            outputNames:
-              - output
-          outgoingConnections:
-            - output->"Compare" WIbE2jMIGV1mk-Ifldlj8/b
-          visualData: 2209.3755457007705/-949.731346066649/230/3162//
-        '[83IKefX32SK-dXBtVe3NL]:chat "Chat"':
+        '[1TTB63TfYzttwzu9rVuw3]:chat "Chat"':
           data:
             additionalParameters: []
             cache: false
-            enableFunctionUse: false
+            enableFunctionUse: true
+            headers: []
             maxTokens: 1024
+            modalitiesIncludeAudio: false
+            modalitiesIncludeText: false
             model: gpt-4o-mini
-            parallelFunctionCalling: true
+            outputUsage: false
+            parallelFunctionCalling: false
+            reasoningEffort: medium
             stop: ""
-            temperature: 0.5
+            temperature: 0.2
             top_p: 1
             useAdditionalParametersInput: false
             useAsGraphPartialOutput: true
             useFrequencyPenaltyInput: false
             useMaxTokensInput: false
             useModelInput: false
+            usePredictedOutput: false
             usePresencePenaltyInput: false
+            useReasoningEffortInput: false
+            useServerTokenCalculation: true
             useStop: false
             useStopInput: false
             useTemperatureInput: false
@@ -510,13 +415,82 @@ data:
             useUseTopPInput: false
             useUserInput: false
           outgoingConnections:
-            - response->"Code" Smhrs8uepBHjLJ_MXaLBr/c
-          visualData: 4988.462943254149/-187.3253933065584/230/3204/var(--node-color-4)/var(--grey-darkish)
+            - function-call->"Extract Object Path" sVxHTzdIn46x5xlPzNtiq/object
+          visualData: 3252.627608129956/-381.70114498124366/230/3237/var(--node-color-4)/var(--grey-darkish)
+        '[32JvOLA0HfmGQ78VuKXaz]:chat "Chat"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: true
+            headers: []
+            maxTokens: 1024
+            modalitiesIncludeAudio: false
+            modalitiesIncludeText: false
+            model: gpt-4o-mini
+            outputUsage: false
+            parallelFunctionCalling: false
+            reasoningEffort: medium
+            stop: ""
+            temperature: 0.2
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePredictedOutput: false
+            usePresencePenaltyInput: false
+            useReasoningEffortInput: false
+            useServerTokenCalculation: true
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - function-call->"Extract Object Path" 9PWGCN0opU10YcMzbyDi7/object
+          visualData: 3240.7758402446316/114.24280990447924/230/3245/var(--node-color-4)/var(--grey-darkish)
+        '[3MMq7PQevG6rFlB3ucDZN]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 7388.035002873511/219.37237385683545/330/3224/var(--node-color-3)/var(--grey-darkish)
+        '[531yn_qT70lBdNSpiJOB9]:graphOutput "Graph Output"':
+          data:
+            dataType: string
+            id: output
+          visualData: 7402.774115671345/563.3182456028673/330/3224/var(--node-color-3)/var(--grey-darkish)
+        '[6AEnJCG6qoqDLlHyIhxCt]:if "If"':
+          data:
+            unconnectedControlFlowExcluded: true
+          outgoingConnections:
+            - falseOutput->"Destructure" -HOFxJ4u5xHuFGQLkyYbG/object
+            - output->"Destructure" d9E6WE4tzmYsvz7MVOvKY/object
+          visualData: 5892.61379079313/376.5479027088685/155/3224/var(--node-color-2)/var(--grey-darkish)
+        '[7Eax8J8Z5AlbnQU1KF42c]:code "Code"':
+          data:
+            code: |
+              const result = inputs.input.value.split(' ').slice(1).join(' ');
+              return {
+                  output: {
+                      type: 'string',
+                      value: result
+                  }
+              };
+            inputNames:
+              - input
+            outputNames:
+              - output
+          outgoingConnections:
+            - output->"Compare" WIbE2jMIGV1mk-Ifldlj8/b
+          visualData: 2552.5596973440047/-386.30592578106194/230/3251//
         '[8xW8_uXbq024oGGku48e-]:graphOutput "Graph Output"':
           data:
             dataType: string
             id: output
-          visualData: 1926.6889594342374/729.9393780826255/330/3161/var(--node-color-3)/var(--grey-darkish)
+          visualData: 1528.569131347055/961.6185471960864/330/3242/var(--node-color-3)/var(--grey-darkish)
         '[966szklAm6M8PIyb8J6hX]:extractObjectPath "Extract Object Path"':
           data:
             path: $.[1]
@@ -524,6 +498,13 @@ data:
           outgoingConnections:
             - match->"Text" RCJ1i1nRpPe8hf34SHWiK/stockB
           visualData: 998.7920364465924/5.793948690648534/280/3046//
+        '[9PWGCN0opU10YcMzbyDi7]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.arguments.selectedSymbol
+            usePathInput: false
+          outgoingConnections:
+            - match->"Code" Smhrs8uepBHjLJ_MXaLBr/b
+          visualData: 3887.9126256555633/178.91270992475/280/3213//
         '[AJ7rxMNrwVqzRqsAoarPh]:code "Code"':
           data:
             code: |
@@ -548,20 +529,62 @@ data:
           outgoingConnections:
             - match->"Code" ojWUlmW863CWDUIlMSLHl/input
             - match->"Text" RCJ1i1nRpPe8hf34SHWiK/stockA
-          visualData: 942.8826437378935/-486.47044535287165/280/3181//
+          visualData: 998.6930473699778/-156.1321773850899/280/3253//
+        '[HK0Zvr362zblhLzXLDg0i]:extractObjectPath "Extract Object Path"':
+          data:
+            path: $.arguments.selectedSymbol
+            usePathInput: false
+          outgoingConnections:
+            - match->"Code" Smhrs8uepBHjLJ_MXaLBr/c
+          visualData: 3871.997506738207/583.1570551449342/280/3214//
         '[M6yLM24jKe_pVch48HcqL]:extractObjectPath "Extract Object Path"':
           data:
             path: $.[0]
             usePathInput: false
           outgoingConnections:
             - match->"Graph Output" 8xW8_uXbq024oGGku48e-/value
-          visualData: 1131.0953195438433/732.5093534300213/280/3096//
+          visualData: 1052.4750250802515/682.3261403182976/280/3239//
         '[N6elVVmDPkBKCT-NLPyVS]:delay "Delay"':
           data:
             delay: 100
           outgoingConnections:
             - output1->"Graph Output" 3MMq7PQevG6rFlB3ucDZN/value
-          visualData: 7965.649013382325/-774.0125061508572/205/3204//
+          visualData: 6917.290420467429/213.2768780814414/205/3224//
+        '[OJ2Dra2E1O9Dv51uUnbKP]:chat "Chat"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: true
+            headers: []
+            maxTokens: 1024
+            modalitiesIncludeAudio: false
+            modalitiesIncludeText: false
+            model: gpt-4o-mini
+            outputUsage: false
+            parallelFunctionCalling: false
+            reasoningEffort: medium
+            stop: ""
+            temperature: 0.2
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePredictedOutput: false
+            usePresencePenaltyInput: false
+            useReasoningEffortInput: false
+            useServerTokenCalculation: true
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - function-call->"Extract Object Path" HK0Zvr362zblhLzXLDg0i/object
+          visualData: 3219.1495639411887/525.0650250185404/286.4813042844671/3233/var(--node-color-4)/var(--grey-darkish)
         '[OpX-S_myFSlAFZ7juCznD]:number "Number"':
           data:
             round: false
@@ -572,25 +595,20 @@ data:
           visualData: -751.8377586644788/299.81729108696106/230/3108//
         '[RCJ1i1nRpPe8hf34SHWiK]:text "Text"':
           data:
-            text: "Compare the two assets and choose which option you think is best. Please
-              be thurough. \r
-
-              \r
-
-              Option 1\r
+            text: "## Option 1\r
 
               {{stockA}}\r
 
               \r
 
-              Option 2\r
+              ## Option 2\r
 
               {{stockB}}"
           outgoingConnections:
-            - output->"Chat" 1-oyx8OXiPMJrWYkGC08f/prompt
-            - output->"Chat" U9sdOMobruLTI-EmJ6BGj/prompt
-            - output->"Chat" Zi4YA1MG2vJb41eJ-5Pxf/prompt
-          visualData: 1995.0466849813217/-513.6507546614505/330/3196//
+            - output->"Chat" 1TTB63TfYzttwzu9rVuw3/prompt
+            - output->"Chat" 32JvOLA0HfmGQ78VuKXaz/prompt
+            - output->"Chat" OJ2Dra2E1O9Dv51uUnbKP/prompt
+          visualData: 1784.214021014139/28.977910063182605/330/3254//
         '[Smhrs8uepBHjLJ_MXaLBr]:code "Code"':
           data:
             code: >
@@ -621,7 +639,7 @@ data:
               - output
           outgoingConnections:
             - output->"Compare" WIbE2jMIGV1mk-Ifldlj8/a
-          visualData: 5620.456712371581/-822.1386443966928/230/3204//
+          visualData: 4591.97713378561/19.636780821445768/230/3235//
         '[TGVzXCj_KICT7-k1_3osF]:array "Array"':
           data:
             flatten: true
@@ -634,40 +652,13 @@ data:
             delay: 100
           outgoingConnections:
             - output1->"Graph Output" 531yn_qT70lBdNSpiJOB9/value
-          visualData: 7951.244195943472/-431.3554560846702/205/3204//
-        '[U9sdOMobruLTI-EmJ6BGj]:chat "Chat"':
-          data:
-            additionalParameters: []
-            cache: false
-            enableFunctionUse: false
-            maxTokens: 1024
-            model: gpt-4o-mini
-            parallelFunctionCalling: true
-            stop: ""
-            temperature: 0.5
-            top_p: 1
-            useAdditionalParametersInput: false
-            useAsGraphPartialOutput: true
-            useFrequencyPenaltyInput: false
-            useMaxTokensInput: false
-            useModelInput: false
-            usePresencePenaltyInput: false
-            useStop: false
-            useStopInput: false
-            useTemperatureInput: false
-            useTopP: false
-            useTopPInput: false
-            useUseTopPInput: false
-            useUserInput: false
-          outgoingConnections:
-            - response->"Text" jnL2D2tJ3kVS_LLJzEfSf/input
-          visualData: 2727.1552906552492/-228.09954649057357/230/3153/var(--node-color-4)/var(--grey-darkish)
+          visualData: 6902.885603028575/555.9339281476284/205/3224//
         '[WIbE2jMIGV1mk-Ifldlj8]:compare "Compare"':
           data:
             comparisonFunction: ==
           outgoingConnections:
             - output->"If" 6AEnJCG6qoqDLlHyIhxCt/if
-          visualData: 6252.402655943308/-710.421715845267/190/3204//
+          visualData: 5204.044063028411/276.8676683870316/190/3224//
         '[X-hOheky4S1UCuWOjpcic]:compare "Compare"':
           data:
             comparisonFunction: ">"
@@ -691,33 +682,6 @@ data:
           outgoingConnections:
             - output->"Compare" X-hOheky4S1UCuWOjpcic/a
           visualData: -1375.1812449437964/148.39188884752363/230/null//
-        '[Zi4YA1MG2vJb41eJ-5Pxf]:chat "Chat"':
-          data:
-            additionalParameters: []
-            cache: false
-            enableFunctionUse: false
-            maxTokens: 1024
-            model: gpt-4o-mini
-            parallelFunctionCalling: true
-            stop: ""
-            temperature: 0.5
-            top_p: 1
-            useAdditionalParametersInput: false
-            useAsGraphPartialOutput: true
-            useFrequencyPenaltyInput: false
-            useMaxTokensInput: false
-            useModelInput: false
-            usePresencePenaltyInput: false
-            useStop: false
-            useStopInput: false
-            useTemperatureInput: false
-            useTopP: false
-            useTopPInput: false
-            useUseTopPInput: false
-            useUserInput: false
-          outgoingConnections:
-            - response->"Text" tOYDLhUwn4SUAHZ9MhmY6/input
-          visualData: 2736.939426119125/-1017.168147748308/230/3153/var(--node-color-4)/var(--grey-darkish)
         '[_yzGndA3iAesUe8kbmRf_]:if "If"':
           data:
             unconnectedControlFlowExcluded: true
@@ -733,21 +697,57 @@ data:
               - $.[0]
           outgoingConnections:
             - match_0->"Delay" N6elVVmDPkBKCT-NLPyVS/input1
-          visualData: 7465.168954017365/-731.7860919639763/280/3204//
-        '[jnL2D2tJ3kVS_LLJzEfSf]:text "Text"':
+          visualData: 6416.810361102468/255.5032922683223/280/3224//
+        '[hdHcPVQl6ZtJqvRjYmKtu]:gptFunction "Create Reports"':
           data:
-            text: "\r\n{{input}}"
+            description: Compares two options by analyzing recent price trends and volume
+              data, selecting the most promising option, providing detailed
+              reasoning, and summarizing the rationale with a confidence score.
+            name: compareOptions
+            schema: >-
+              {
+                "type": "object",
+                "properties": {
+                  "priceAnalysis": {
+                    "type": "string",
+                    "description": "Detailed analysis comparing recent price trends of both symbols, clearly highlighting strengths and weaknesses."
+                  },
+                  "volumeAnalysis": {
+                    "type": "string",
+                    "description": "Detailed evaluation comparing volume performance of both stocks, clearly highlighting strengths and weaknesses."
+                  },
+                  "summary": {
+                    "type": "string",
+                    "description": "Concise summary blending insights from both analyses above, along with additional relevant factors not previously mentioned, to form a comprehensive viewpoint."
+                  },
+                  "selectedSymbol": {
+                    "type": "string",
+                    "description": "Based explicitly on your detailed price analysis, volume analysis, and the comprehensive summary, choose the symbol you believe is the better option."
+                  },
+                  "confidenceScore": {
+                    "type": "integer",
+                    "description": "Your confidence level in this selection, on a scale from 1 (low confidence) to 10 (high confidence).",
+                    "minimum": 1,
+                    "maximum": 10
+                  }
+                },
+                "required": ["priceAnalysis", "volumeAnalysis", "summary", "selectedSymbol", "confidenceScore"],
+                "additionalProperties": false
+              }
+            text: ""
+            useDescriptionInput: false
+            useSchemaInput: false
           outgoingConnections:
-            - output->"Chat" 83IKefX32SK-dXBtVe3NL/prompt
-          visualData: 3746.076342590975/-256.81074241564886/330/3202//
+            - function->"Array" pSKPDRX8Lfbguory35Fy5/input1
+          visualData: 1675.282142085007/482.1692802331142/608.565978600187/3246//
         '[ojWUlmW863CWDUIlMSLHl]:code "Code"':
           data:
             code: |
-              const topLine = inputs.input.value.split('\n')[0];
+              const firstLine = inputs.input.value.split('\n')[0];
               return {
                   output: {
                       type: 'string',
-                      value: topLine
+                      value: firstLine
                   }
               };
             inputNames:
@@ -756,7 +756,16 @@ data:
               - output
           outgoingConnections:
             - output->"Code" 7Eax8J8Z5AlbnQU1KF42c/input
-          visualData: 1506.8819817134372/-701.1850516261185/230/3180//
+          visualData: 1820.6009345139753/-371.04466427786923/230/3250//
+        '[pSKPDRX8Lfbguory35Fy5]:array "Array"':
+          data:
+            flatten: true
+            flattenDeep: false
+          outgoingConnections:
+            - output->"Chat" 1TTB63TfYzttwzu9rVuw3/functions
+            - output->"Chat" 32JvOLA0HfmGQ78VuKXaz/functions
+            - output->"Chat" OJ2Dra2E1O9Dv51uUnbKP/functions
+          visualData: 2570.7651751977587/396.3777701827464/230/3230//
         '[pib2i1hc5yAuGPGhw4X2O]:comment "Comment"':
           data:
             backgroundColor: rgba(0,0,0,0.05)
@@ -764,39 +773,22 @@ data:
             height: 600
             text: "#### If there are two players"
           visualData: 268.9032486949909/155.94110516656866/630/7//
-        '[s7KpuXKupLjeHtPuJOOIv]:chat "Chat"':
+        '[s3AQP1pxfv9WlW1wIUL7K]:text "Text"':
           data:
-            additionalParameters: []
-            cache: false
-            enableFunctionUse: false
-            maxTokens: 1024
-            model: gpt-4o-mini
-            parallelFunctionCalling: true
-            stop: ""
-            temperature: 0.5
-            top_p: 1
-            useAdditionalParametersInput: false
-            useAsGraphPartialOutput: true
-            useFrequencyPenaltyInput: false
-            useMaxTokensInput: false
-            useModelInput: false
-            usePresencePenaltyInput: false
-            useStop: false
-            useStopInput: false
-            useTemperatureInput: false
-            useTopP: false
-            useTopPInput: false
-            useUseTopPInput: false
-            useUserInput: false
+            text: "Call the GPT function calls, making sure to first compare and then decide
+              on a winner. "
           outgoingConnections:
-            - response->"Code" Smhrs8uepBHjLJ_MXaLBr/b
-          visualData: 4988.282239617268/-612.7513761911513/230/3204/var(--node-color-4)/var(--grey-darkish)
-        '[tOYDLhUwn4SUAHZ9MhmY6]:text "Text"':
+            - output->"Chat" 1TTB63TfYzttwzu9rVuw3/systemPrompt
+            - output->"Chat" 32JvOLA0HfmGQ78VuKXaz/systemPrompt
+            - output->"Chat" OJ2Dra2E1O9Dv51uUnbKP/systemPrompt
+          visualData: 2505.8919719248033/13.726400204489494/330/3249//
+        '[sVxHTzdIn46x5xlPzNtiq]:extractObjectPath "Extract Object Path"':
           data:
-            text: "\r\n\r\n{{input}}"
+            path: $.arguments.selectedSymbol
+            usePathInput: false
           outgoingConnections:
-            - output->"Chat" yUho43ir1LGy0RRHRi25W/prompt
-          visualData: 3756.9594369063834/-920.8296070232034/330/3199//
+            - match->"Code" Smhrs8uepBHjLJ_MXaLBr/a
+          visualData: 3896.4126789329466/-241.13914900772772/280/null//
         '[v4KX27JI5dLkREjrQaaZl]:code "remove charcters"':
           data:
             code: |
@@ -812,42 +804,6 @@ data:
             outputNames:
               - output
           visualData: -681.6617877872192/488.26209108093803/230/3094//
-        '[xVN0gNt_wc-FqMBiQLz48]:text "Text"':
-          data:
-            text: "Look through the text and respond with the asset Symbol you prefer.
-              Please only respond with the symbol. "
-          outgoingConnections:
-            - output->"Chat" 83IKefX32SK-dXBtVe3NL/systemPrompt
-            - output->"Chat" s7KpuXKupLjeHtPuJOOIv/systemPrompt
-            - output->"Chat" yUho43ir1LGy0RRHRi25W/systemPrompt
-          visualData: 3773.247255053784/-598.6152352693009/330/3193//
-        '[yUho43ir1LGy0RRHRi25W]:chat "Chat"':
-          data:
-            additionalParameters: []
-            cache: false
-            enableFunctionUse: false
-            maxTokens: 1024
-            model: gpt-4o-mini
-            parallelFunctionCalling: true
-            stop: ""
-            temperature: 0.5
-            top_p: 1
-            useAdditionalParametersInput: false
-            useAsGraphPartialOutput: true
-            useFrequencyPenaltyInput: false
-            useMaxTokensInput: false
-            useModelInput: false
-            usePresencePenaltyInput: false
-            useStop: false
-            useStopInput: false
-            useTemperatureInput: false
-            useTopP: false
-            useTopPInput: false
-            useUseTopPInput: false
-            useUserInput: false
-          outgoingConnections:
-            - response->"Code" Smhrs8uepBHjLJ_MXaLBr/a
-          visualData: 4983.18639581411/-1004.6639386200749/230/3204/var(--node-color-4)/var(--grey-darkish)
         '[yXP29Wb7p-cFzo-mDHF02]:graphInput "Graph Input"':
           data:
             dataType: string[]
@@ -857,12 +813,6 @@ data:
             - data->"Code" Y4Zo_EVusZXqyR2eaAdZB/input
             - data->"Destructure" 1OgnhNVVx5P0-2CWElUiE/object
           visualData: -2287.388737913199/389.87551663944/330/3091/var(--node-color-3)/var(--grey-darkish)
-        '[yfzx2DeWF0nkCJr9OoSVd]:text "Text"':
-          data:
-            text: "\r\n{{input}}"
-          outgoingConnections:
-            - output->"Chat" s7KpuXKupLjeHtPuJOOIv/prompt
-          visualData: 4322.855657865776/-588.3376115227663/330/3201//
     Vr5USiDLabo-0zQIdaE_f:
       metadata:
         description: ""
@@ -947,10 +897,10 @@ data:
           outgoingConnections:
             - output->"Code" 7ERK7E-GrEorLk_4pvgpd/number
           visualData: -3413.6112306358655/1267.7187070214916/230/3045//
-        '[3rkgYjVseZg0D6WGGVP4K]:graphOutput "Graph Output"':
+        '[3rkgYjVseZg0D6WGGVP4K]:graphOutput "Champion"':
           data:
             dataType: string
-            id: output
+            id: champion
           visualData: -996.0662111653032/1056.5063631008463/330/3050/var(--node-color-3)/var(--grey-darkish)
         '[7ERK7E-GrEorLk_4pvgpd]:code "Code"':
           data:
@@ -1026,7 +976,7 @@ data:
             atMaxIterationsAction: break
             maxIterations: 100
           outgoingConnections:
-            - break->"Graph Output" 3rkgYjVseZg0D6WGGVP4K/value
+            - break->"Champion" 3rkgYjVseZg0D6WGGVP4K/value
             - output1->"Subgraph" gdary7uNHVR_3_f28xLAg/input
           visualData: -1674.0909806715094/1084.092095856085/280/3045/var(--node-color-6)/var(--node-color-6)
         '[wZCVTo8_SzCOhNG-7rKQA]:comment "Comment"':

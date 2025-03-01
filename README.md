@@ -79,4 +79,4 @@ Your feedback and contributions are highly encouraged! Feel free to contribute, 
 
 Happy investing and innovating! 🚀
 
-— Grant
+- Grant
