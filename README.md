@@ -43,25 +43,6 @@ Watch this short YouTube walkthrough for a clear demonstration of Vindicci:
 
 [![Watch Vindicci Demo](https://img.youtube.com/vi/mGBrwXTK7oc/0.jpg)](https://youtu.be/mGBrwXTK7oc)
 
----
-
-## 🤖 How the AI Tournament Works
-
-1. **Data Preparation:**
-   - TradingView CSV provides initial data points for each asset.
-
-2. **Round Setup:**
-   - Assets are matched head-to-head in rounds.
-
-3. **GPT Evaluations:**
-   - Three GPT instances independently evaluate each asset pair.
-   - Each agent votes based on detailed analysis of provided prompts.
-
-4. **Progression:**
-   - The asset receiving majority votes advances to the next round.
-
-5. **Champion Selection:**
-   - Repeated rounds eliminate less promising assets until a final winner is determined.
 
 ---
 
