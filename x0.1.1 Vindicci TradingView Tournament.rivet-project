@@ -5,31 +5,6 @@ data:
       testSuites: []
       version: 1
   graphs:
-    1xM_BYu7N_SgNlYjAJaCv:
-      metadata:
-        description: ""
-        id: 1xM_BYu7N_SgNlYjAJaCv
-        name: Level 3/⏭️ Add colon
-      nodes:
-        '[1TRYN4Qwhf4EZfUIfgH_h]:text "Text"':
-          data:
-            text: "{{input}}: "
-          outgoingConnections:
-            - output->"Graph Output" 8mdCgEwejIJW3HzpM6SBm/value
-          visualData: 1047/436/330/null//
-        '[8mdCgEwejIJW3HzpM6SBm]:graphOutput "Graph Output"':
-          data:
-            dataType: string
-            id: output
-          visualData: 1509.1111450195312/471.3333435058594/330/1/var(--node-color-3)/var(--grey-darkish)
-        '[YawziRePLOzGZpS-dEG11]:graphInput "Graph Input"':
-          data:
-            dataType: string
-            id: input
-            useDefaultValueInput: false
-          outgoingConnections:
-            - data->"Text" 1TRYN4Qwhf4EZfUIfgH_h/input
-          visualData: 435/353/330/null/var(--node-color-3)/var(--grey-darkish)
     8EsM8Lf0INd7NkEl8b1dp:
       metadata:
         description: ""
@@ -994,10 +969,10 @@ data:
       nodes:
         '[RVbI-PqTC-cSoP23Zq87l]:text "Text"':
           data:
-            text: "{{header}}{{input}}"
+            text: "{{header}}: {{input}}"
           outgoingConnections:
             - output->"Graph Output" cXT-YD5Wz4kJX9rbDlHZP/value
-          visualData: 1946.7374812658693/570.3711460078018/330/2996//
+          visualData: 1511.6095351883744/443.64970599439084/330/2997//
         '[cXT-YD5Wz4kJX9rbDlHZP]:graphOutput "Graph Output"':
           data:
             dataType: string
@@ -1047,16 +1022,6 @@ data:
             - output->"Extract Object Path" SB-HzE99o6JcdHrOiOqwi/object
           splitRunMax: 10
           visualData: 791.5551777663588/512.790046185477/230/3015//
-        '[LuMkHgXeDCOZwJEV240B_]:subGraph "Subgraph"':
-          data:
-            graphId: 1xM_BYu7N_SgNlYjAJaCv
-            useAsGraphPartialOutput: false
-            useErrorOutput: false
-          isSplitRun: true
-          outgoingConnections:
-            - output->"Subgraph" tUb9ZVtHs109LLffE9P0D/header
-          splitRunMax: 100
-          visualData: 1356.0011034226904/-24.776795948080704/330/3032/var(--node-color-6)/var(--grey-darkish)
         '[SB-HzE99o6JcdHrOiOqwi]:extractObjectPath "Extract Object Path"':
           data:
             path: $.[0]
@@ -1082,7 +1047,7 @@ data:
             outputNames:
               - output
           outgoingConnections:
-            - output->"Subgraph" LuMkHgXeDCOZwJEV240B_/input
+            - output->"Subgraph" tUb9ZVtHs109LLffE9P0D/header
           visualData: 634.2443193789943/-22.847389370640947/347.3104648529543/3020//
         '[WlxUJAEOHIlkI4A21qQxS]:graphInput "Graph Input"':
           data:
